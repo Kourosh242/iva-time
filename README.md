@@ -1,59 +1,266 @@
+<!---
+🇮🇷 IVA TIME · آیوا تایم
+Bilingual World Clock · ساعت جهانی دو زبانه
+Version 2.0 · ۱۴۰۵
+-->
+
 <div align="center">
-  <img src="assets/iva-logo.svg" width="92" alt="IVA TIME logo">
-  <h1>IVA TIME · آیوا تایم</h1>
-  <p><strong>Every city. One moment. · هر شهر، یک لحظه</strong></p>
-  <p>A premium bilingual world clock with a solar (Jalali) calendar and NTP time sync.</p>
-  <p><img alt="HTML" src="https://img.shields.io/badge/HTML5-ready-E34F26?style=flat-square&logo=html5&logoColor=white"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?style=flat-square&logo=javascript&logoColor=111"> <img alt="License" src="https://img.shields.io/badge/license-MIT-ff5a36?style=flat-square"> <img alt="RTL" src="https://img.shields.io/badge/RTL-ready-24a148?style=flat-square"> <img alt="NTP" src="https://img.shields.io/badge/NTP-synced-0f9d58?style=flat-square"></p>
+
+![IVA TIME Logo](assets/iva-logo.svg)
+
+# IVA TIME · آیوا تایم
+
+**Every city. One moment.** · **هر شهر، یک لحظه**
+
+*A premium bilingual world clock with solar calendar and NTP time synchronization*
+
+*ساعت جهانی دو‌زبانه پریمیوم با تقویم شمسی و همگام‌سازی زمان NTP*
+
+---
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-ff5a36?style=for-the-badge)](LICENSE)
+[![HTML5](https://img.shields.io/badge/HTML5-Ready-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![RTL Ready](https://img.shields.io/badge/RTL-Ready-24a148?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
+[![NTP Synced](https://img.shields.io/badge/NTP-Synced-0f9d58?style=for-the-badge)](https://en.wikipedia.org/wiki/Network_Time_Protocol)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-232323?style=for-the-badge&logo=github)](https://pages.github.com/)
+
 </div>
 
-![IVA TIME repository poster](assets/og.png)
+---
 
-## فارسی
+## 🇮🇷 فارسی · Persian
 
-آیوا تایم یک ساعت جهانی زنده، سریع و دو‌زبانه است. رابط فارسی با چیدمان کامل راست‌چین، جست‌وجوی شهر و کشور، فیلتر منطقه‌ای، تشخیص روز و شب، ساعت محلی، حالت روشن/تیره، **تقویم شمسی (جلالی) و میلادی زنده** و **همگام‌سازی زمان با شبکه (NTP)** ارائه می‌شود. هیچ API Key یا سرویس خارجی لازم نیست.
+### درباره آیوا تایم
+
+**آیوا تایم** یک ساعت جهانی زنده، سریع و زیباست که با تمرکز بر کاربران فارسی‌زبان و بین‌المللی طراحی شده است. این پروژه نیازی به API Key، سرور یا پایگاه داده ندارد — فقط HTML، CSS و JavaScript خالص.
+
+### ویژگی‌های کلیدی
+
+| ویژگی | توضیح |
+|-------|-------|
+| 🌐 **۳۸ شهر جهان** | با منطقه زمانی IANA معتبر |
+| 📅 **تقویم شمسی و میلادی** | تبدیل دقیق الگوریتم Borkowski |
+| ⏱️ **همگام‌سازی NTP** | محاسبه انحراف ساعت با دقت میلی‌ثانیه |
+| 🌗 **تشخیص روز و شب** | نمایش وضعیت خورشید در هر شهر |
+| 🔍 **جستجو و فیلتر** | جستجوی شهر و کشور + فیلتر منطقه‌ای |
+| 🌍 **دو زبانه** | فارسی (RTL) و انگلیسی (LTR) |
+| 🎨 **حالت روشن/تیره** | تغییر آسان تم |
+| 📱 **واکنش‌گرا** | سازگار با موبایل و دسکتاپ |
+| 🇮🇷 **پرچم کشورها** | نمایش خودکار با Unicode |
+| 🔄 **DST خودکار** | به‌روزرسانی خودکار ساعت تابستانی |
 
 ### NTP چیست؟
-NTP (Network Time Protocol) پروتکل استاندارد اینترنت برای همگام‌سازی ساعت دستگاه‌ها با سرورهای زمان دقیق (که خود با GPS و ساعت اتمی سنخ‌فاز هستند) است. مرورگرها به سوکت UDP خام (پورت 123) دسترسی ندارند، بنابراین این سایت زمان را با منابع زمانی «سنخ‌فاز با NTP» (لبه‌های Cloudflare و WorldTimeAPI) می‌سنجد، **انحراف (offset)** ساعت محلی شما را با دقت میلی‌ثانیه محاسبه می‌کند و روی همه‌ی ساعت‌های صفحه اعمال می‌کند. وضعیت زنده (منبع، RTT، انحراف) در نوار پایین بخش تقویم نمایش داده می‌شود و هر ۵ دقیقه خودکار تکرار می‌شود.
 
-## English
+**NTP (Network Time Protocol)** پروتکل استاندارد اینترنت برای همگام‌سازی ساعت دستگاه‌ها با سرورهای زمان دقیق (که خود با GPS و ساعت اتمی هماهنگ هستند) است.
 
-IVA TIME is a polished bilingual live world clock with Persian RTL and English LTR layouts, search, regional filters, day/night status, local time, themes, a **live Jalali (Persian solar) and Gregorian calendar**, and **NTP network time synchronization** — zero external API keys.
+مرورگرها به سوکت‌های UDP خام (پورت ۱۲۳) دسترسی ندارند، بنابراین این سایت:
+1. زمان را از منابع **NTP-disciplined** می‌خواند (لبه Cloudflare و WorldTimeAPI)
+2. **انحراف (offset)** ساعت محلی شما را با دقت میلی‌ثانیه محاسبه می‌کند
+3. این انحراف را روی همه ساعت‌ها اعمال می‌کند
 
-### What is NTP?
-NTP (Network Time Protocol) is the Internet's standard protocol for synchronizing clocks against precision time servers (themselves disciplined by GPS and atomic clocks). Browsers cannot open raw UDP sockets (port 123), so this site measures the offset of your local clock against NTP-disciplined network time sources (Cloudflare edge, WorldTimeAPI) with millisecond precision and applies that offset to every clock on the page. The live status bar (source, RTT, offset) sits below the calendar section and re-syncs automatically every 5 minutes.
+وضعیت زنده (منبع، RTT، انحراف) در نوار پایین بخش تقویم نمایش داده می‌شود و هر **۵ دقیقه** خودکار تکرار می‌شود.
 
-## Highlights
+### الگوریتم تقویم جلالی
 
-- Live clocks updated every second
-- **Solar (Jalali) + Gregorian calendar** — accurate Borkowski conversion (matches `Intl` `fa-IR-u-ca-persian`), leap-aware Esfand, Saturday-first Persian week, Persian digits, today highlight
-- **NTP time sync** — network offset measured and applied to all clocks, live status (source / RTT / offset), 5-minute auto re-sync, graceful local-clock fallback
-- Persian / English switch with true RTL / LTR layouts
-- Country flags, search, region filters and automatic DST
-- Custom SVG logo and repository social poster
-- Pure HTML, CSS and JavaScript — no build step
-- GitHub Pages workflow included
-- Responsive and accessible
+پیاده‌سازی الگوریتم **Borkowski (1996)** که:
+- برای سال‌های جلالی **-61 تا 3177** دقیق است
+- با تقویم `Intl` مروگر در بازه **1800-2256 میلادی** مطابقت دارد
+- سال‌های کبیسه جلالی (اسفند ۳۰ روزه) را به درستی محاسبه می‌کند
 
-## Run locally
+### نصب و اجرا
 
-Open `index.html` directly, or serve this directory with any static web server.
-
-## cPanel deployment
-
-Upload **all repository files except `.github/`** to `public_html`. No Node.js, database, API key or build step is required.
-
-## GitHub Pages
-
-Set **Pages → Source** to **GitHub Actions**, then push to `main`. The included workflow publishes the site automatically.
-
-## Project structure
-
-```text
-index.html           Website structure (hero, clocks, calendar, sync bar, about)
-style.css            Responsive visual system
-app.js               Clocks, Jalali/Gregorian calendar, NTP sync, bilingual logic
-assets/              Logo, social poster, self-hosted Vazirmatn font
-.github/workflows/   GitHub Pages automation
+**روش ۱: اجرای مستقیم**
+```bash
+# فایل index.html را در مرورگر باز کنید
 ```
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before contributing. Released under the [MIT License](LICENSE).
+**روش ۲: سرور محلی**
+```bash
+# Python
+python -m http.server 8000
+
+# Node.js
+npx serve .
+
+# PHP
+php -S localhost:8000
+```
+
+### استقرار
+
+#### GitHub Pages
+1. تنظیمات مخزن → **Pages** → **Source** → **GitHub Actions**
+2. Push به branch `main`
+3. گردش‌کار (workflow) به صورت خودکار سایت را منتشر می‌کند
+
+#### cPanel
+تمام فایل‌های مخزن (به جز `.github/`) را در `public_html` آپلود کنید.
+
+---
+
+## 🇬🇧 English
+
+### About IVA TIME
+
+**IVA TIME** is a premium, live world clock designed for Persian-speaking users and international audiences alike. This project requires no API keys, server, or database — just pure HTML, CSS, and JavaScript.
+
+### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🌐 **38 World Cities** | Validated against official IANA timezones |
+| 📅 **Jalali & Gregorian Calendar** | Borkowski algorithm for precise conversion |
+| ⏱️ **NTP Time Sync** | Millisecond-accurate offset measurement |
+| 🌗 **Day/Night Indicator** | Sun status for each city |
+| 🔍 **Search & Filter** | City/country search + regional filters |
+| 🌍 **Bilingual** | Persian (RTL) and English (LTR) |
+| 🎨 **Light/Dark Theme** | Easy theme switching |
+| 📱 **Responsive** | Works on mobile and desktop |
+| 🇮🇷 **Country Flags** | Auto-generated with Unicode |
+| 🔄 **Auto DST** | Automatic daylight-saving updates |
+
+### What is NTP?
+
+**NTP (Network Time Protocol)** is the Internet's standard protocol for synchronizing clocks against precision time servers (disciplined by GPS and atomic clocks).
+
+Since browsers cannot open raw UDP sockets (port 123), this site:
+1. Reads time from **NTP-disciplined** sources (Cloudflare edge, WorldTimeAPI)
+2. Calculates your local clock's **offset** with millisecond precision
+3. Applies that offset to every clock on the page
+
+Live status (source, RTT, offset) displays below the calendar section and re-syncs automatically every **5 minutes**.
+
+### Jalali Calendar Algorithm
+
+Implementation of the **Borkowski (1996)** algorithm which:
+- Is accurate for Jalali years **-61 to 3177**
+- Matches the browser's `Intl` calendar for **1800-2256 CE**
+- Correctly calculates Jalali leap years (Esfand 30 days)
+
+### Installation & Running
+
+**Method 1: Direct Open**
+```bash
+# Open index.html in your browser
+```
+
+**Method 2: Local Server**
+```bash
+# Python
+python -m http.server 8000
+
+# Node.js
+npx serve .
+
+# PHP
+php -S localhost:8000
+```
+
+### Deployment
+
+#### GitHub Pages
+1. Repository Settings → **Pages** → **Source** → **GitHub Actions**
+2. Push to `main` branch
+3. The workflow automatically publishes the site
+
+#### cPanel
+Upload all repository files (except `.github/`) to `public_html`.
+
+---
+
+## 📁 Project Structure · ساختار پروژه
+
+```text
+iva-time/
+├── index.html              # Website structure
+├── style.css               # Responsive visual system
+├── app.js                  # Core logic (clocks, calendar, NTP, i18n)
+├── assets/
+│   ├── iva-logo.svg        # SVG logo with gradient
+│   ├── og.png              # Social sharing image
+│   └── fonts/
+│       └── Vazirmatn-Variable.woff2  # Self-hosted Persian font
+├── .github/
+│   ├── workflows/
+│   │   └── pages.yml       # GitHub Pages automation
+│   └── ISSUE_TEMPLATE/
+│       └── bug_report.yml  # Bug report template
+├── CONTRIBUTING.md         # Contribution guidelines
+├── SECURITY.md             # Security policy
+├── LICENSE                 # MIT License
+└── README.md               # This file
+```
+
+---
+
+## 🛠️ Technical Details · جزئیات فنی
+
+### Supported Timezones · منطقه‌های زمانی پشتیبانی‌شده
+
+| Continent | Cities |
+|-----------|--------|
+| **Americas** | New York, Los Angeles, Toronto, Mexico City, São Paulo, Buenos Aires |
+| **Europe** | London, Paris, Berlin, Madrid, Rome, Amsterdam, Stockholm, Istanbul |
+| **Middle East** | Dubai, Tehran, Riyadh, Doha |
+| **Africa** | Cairo, Lagos, Nairobi, Cape Town, Casablanca |
+| **Asia Pacific** | Tokyo, Seoul, Beijing, Singapore, Bangkok, Jakarta, Mumbai, Karachi, Dhaka, Sydney, Perth, Auckland |
+
+### Browser Compatibility · سازگاری مرورگر
+
+| Feature | Chrome | Firefox | Safari | Edge |
+|---------|--------|---------|--------|------|
+| Intl.DateTimeFormat | ✅ | ✅ | ✅ | ✅ |
+| CSS Variables | ✅ | ✅ | ✅ | ✅ |
+| CSS Grid | ✅ | ✅ | ✅ | ✅ |
+| Fetch API | ✅ | ✅ | ✅ | ✅ |
+| RTL Support | ✅ | ✅ | ✅ | ✅ |
+
+---
+
+## 📖 Wiki · مستندات
+
+برای مستندات کامل به [Wiki پروژه](https://github.com/Kourosh242/iva-time/wiki) مراجعه کنید.
+
+For complete documentation, visit the [project Wiki](https://github.com/Kourosh242/iva-time/wiki).
+
+### Quick Links · لینک‌های سریع
+
+- [🏠 Homepage](https://kourosh242.github.io/iva-time/)
+- [📝 Changelog](./CHANGELOG.md)
+- [🐛 Bug Report](./.github/ISSUE_TEMPLATE/bug_report.yml)
+- [💡 Feature Request](./.github/ISSUE_TEMPLATE/feature_request.yml)
+- [📄 License](./LICENSE)
+
+---
+
+## 🤝 Contributing · مشارکت
+
+Read our [contribution guidelines](./CONTRIBUTING.md) before submitting pull requests.
+
+راهنمای مشارکت ما را قبل از ارسال Pull Request بخوانید.
+
+---
+
+## 📜 License · مجوز
+
+Released under the [MIT License](./LICENSE). Made with ❤️ for the world.
+
+```
+MIT License
+
+Copyright (c) 2026 IVA TIME contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software...
+```
+
+---
+
+<div align="center">
+
+**🌍 Time connects us all. · زمان، همه‌ی ما را به هم متصل می‌کند.**
+
+*© 2026 IVA TIME · آیوا تایم*
+
+</div>
