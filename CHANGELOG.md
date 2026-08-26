@@ -1,0 +1,142 @@
+# Changelog · تاریخچه تغییرات
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.0.0] - 1405 / 2025
+
+### Added · افزوده شده
+
+- ✅ **Live Jalali and Gregorian Calendar** - تقویم زنده شمسی و میلادی
+  - Borkowski (1996) algorithm implementation
+  - Saturday-first Persian week
+  - Persian numerals display
+  - Today highlight with orange border
+  - Cross-date display (shows equivalent in other calendar)
+  
+- ✅ **NTP Time Synchronization** - همگام‌سازی زمان NTP
+  - Cloudflare edge time source
+  - WorldTimeAPI fallback
+  - RTT (Round-Trip Time) measurement
+  - Millisecond-accurate offset calculation
+  - Live status bar (source, RTT, offset)
+  - Auto re-sync every 5 minutes
+  - Manual sync button
+  
+- ✅ **Enhanced World Clocks** - ساعت‌های جهان بهبودیافته
+  - 38 cities across 6 regions
+  - Day/night indicator
+  - Country flags with Unicode
+  - Search functionality
+  - Regional filters (Americas, Europe, Middle East, Africa, Asia Pacific)
+  - "Show more" pagination
+  
+- ✅ **Bilingual Support** - پشتیبانی دو زبانه
+  - Complete Persian (RTL) translations
+  - Complete English (LTR) translations
+  - Persian numerals (۰۱۲۳۴۵۶۷۸۹)
+  - True RTL layout with Vazirmatn font
+  
+- ✅ **Professional Documentation** - مستندات حرفه‌ای
+  - Comprehensive bilingual README
+  - 13-page Wiki documentation
+  - Contribution guidelines
+  - Security policy
+  - Feature request template
+  - Bug report template
+
+### Changed · تغییر یافته
+
+- 🎨 **Redesigned UI** - طراحی مجدد رابط کاربری
+  - New hero section with gradient globe
+  - Improved card design
+  - Better typography hierarchy
+  - Enhanced calendar panel
+  
+- 📱 **Improved Responsiveness** - واکنش‌گرایی بهبودیافته
+  - Better mobile layouts
+  - Optimized breakpoints
+  - Touch-friendly controls
+  
+- ⚡ **Performance** - عملکرد
+  - Optimized render loop
+  - Reduced DOM updates
+  - Efficient calendar calculations
+
+### Fixed · رفع شده
+
+- 🐛 RTL layout issues
+- 🐛 Calendar navigation direction
+- 🐛 Search filtering behavior
+
+---
+
+## [1.0.0] - Initial Release · انتشار اولیه
+
+### Added · افزوده شده
+
+- 🌐 Basic world clocks
+- 🌍 Bilingual support (Persian/English)
+- 📱 Responsive design
+- 🎨 Dark theme
+- 🇮🇷 Country flags
+- 🔍 City search
+- 🎨 Light/dark theme toggle
+
+---
+
+## 📋 Versioning · نسخه‌بندی
+
+We use [Semantic Versioning](https://semver.org/):
+
+```
+MAJOR.MINOR.PATCH
+2.0.0
+│ │ └─ Patch: Bug fixes
+│ └─── Minor: New features (backwards compatible)
+└───── Major: Breaking changes
+```
+
+### Version History · تاریخچه نسخه‌ها
+
+| Version | Date | Jalali Year | Status |
+|---------|------|-------------|--------|
+| 2.0.0 | 2025 | ۱۴۰۴ | 🎉 Current |
+| 1.0.0 | 2024 | ۱۴۰۳ | ⚠️ Deprecated |
+
+---
+
+## 🔄 Release Process · فرآیند انتشار
+
+1. Create release branch: `release/v2.x.x`
+2. Test all features thoroughly
+3. Update CHANGELOG.md
+4. Create GitHub release with release notes
+5. Merge to main branch
+6. Deploy to GitHub Pages via workflow
+
+---
+
+## 🐛 Reporting Issues · گزارش مشکلات
+
+Found a bug? Please report it using our [Bug Report Template](./.github/ISSUE_TEMPLATE/bug_report.yml).
+
+Please include:
+- Browser name and version
+- Device type (mobile/desktop)
+- Operating system
+- Steps to reproduce
+- Expected vs actual behavior
+- Screenshots if applicable
+
+---
+
+## 💡 Suggesting Features · پیشنهاد ویژگی
+
+Have an idea? Use our [Feature Request Template](./.github/ISSUE_TEMPLATE/feature_request.yml).
+
+---
+
+**Full Changelog**: https://github.com/Kourosh242/iva-time/commits/main

@@ -1,0 +1,119 @@
+# IVA TIME · آیوا تایم
+# Pull Request Template · تمپلیت Pull Request
+
+## 🇮🇷 فارسی
+
+### قبل از ارسال PR
+
+- [ ] کد تست شده و بدون خطا است
+- [ ] فارسی و انگلیسی به‌طور برابر به‌روز شده‌اند
+- [ ] RTL/LTR تست شده است
+- [ ] طراحی واکنش‌گرا روی موبایل تأیید شده
+- [ ] هیچ console error وجود ندارد
+
+### توضیحات PR
+
+**عنوان**: `feat: توضیح کوتاه` یا `fix: توضیح کوتاه`
+
+**متن**:
+```
+## توضیح
+[توضیح تغییرات]
+
+## نوع تغییر
+- [ ] ویژگی جدید
+- [ ] رفع باگ
+- [ ] تغییر ظاهر
+- [ ] مستندات
+
+## تست شده
+- [ ] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Mobile
+```
+
+---
+
+## 🇬🇧 English
+
+### Before Submitting PR
+
+- [ ] Code is tested and error-free
+- [ ] Persian and English updated equivalently
+- [ ] RTL/LTR tested
+- [ ] Responsive design confirmed on mobile
+- [ ] No console errors
+
+### PR Description
+
+**Title**: `feat: Short description` or `fix: Short description`
+
+**Body**:
+```
+## Description
+[Description of changes]
+
+## Change Type
+- [ ] New feature
+- [ ] Bug fix
+- [ ] UI change
+- [ ] Documentation
+
+## Tested On
+- [ ] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Mobile
+```
+
+---
+
+## 🔍 Checklist
+
+### Code Quality
+- [ ] No console.log statements
+- [ ] No commented-out code
+- [ ] Meaningful variable names
+- [ ] Functions documented
+
+### Bilingual
+- [ ] New strings added to both `C.en` and `C.fa`
+- [ ] RTL layout works correctly
+- [ ] Persian numerals display correctly
+
+### Accessibility
+- [ ] ARIA labels on new interactive elements
+- [ ] Keyboard navigation works
+- [ ] Color contrast is sufficient
+
+### Performance
+- [ ] No unnecessary DOM updates
+- [ ] Images optimized
+- [ ] No memory leaks
+
+---
+
+## 📝 Example
+
+```markdown
+## Description
+Added support for 5 new cities in Asia Pacific region.
+
+## Type
+- [x] New feature
+
+## Changes
+- Added Tokyo, Seoul, Beijing, Singapore, Bangkok
+- Updated city filter to include Asia Pacific cities
+- Added Persian names for new cities
+
+## Tested On
+- [x] Chrome
+- [x] Firefox
+- [x] Mobile (iPhone 12)
+```
+
+---
+
+**ممنون از مشارکت شما! · Thanks for contributing!**
