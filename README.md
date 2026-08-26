@@ -12,8 +12,8 @@ Version 5.0.0 · ۱۴۰۵
 
 **Every city. One moment.** · **هر شهر، یک لحظه**
 
-*ساعت جهانی دو‌زبانه با تقویم شمسی، همگام‌سازی NTP، مدیریت شهرها و PWA آفلاین*  
-*Bilingual world clock · Jalali/Gregorian calendar · NTP sync · city manager · offline PWA*
+_ساعت جهانی دو‌زبانه با تقویم شمسی، همگام‌سازی NTP، مدیریت شهرها و PWA آفلاین_  
+_Bilingual world clock · Jalali/Gregorian calendar · NTP sync · city manager · offline PWA_
 
 ---
 
@@ -39,29 +39,31 @@ Version 5.0.0 · ۱۴۰۵
 
 ### ویژگی‌های کلیدی
 
-| ویژگی | توضیح |
-|-------|-------|
-| 🌐 **۳۵ شهر جهان** | با timezone معتبر IANA در ۶ منطقه |
+| ویژگی                      | توضیح                                                     |
+| -------------------------- | --------------------------------------------------------- |
+| 🌐 **۳۵ شهر جهان**         | با timezone معتبر IANA در ۶ منطقه                         |
 | 📅 **تقویم شمسی و میلادی** | الگوریتم Borkowski (1996) — دقیق برای سال‌های ۶۱- تا ۳۱۷۷ |
-| ⏱️ **همگام‌سازی NTP** | Cloudflare edge → WorldTimeAPI، دقت میلی‌ثانیه |
-| 🏙️ **مدیریت شهرها** | هر timezone از IANA (۵۰۰+) از طریق دیالوگ، بدون کد |
-| ⭐ **علاقه‌مندی‌ها** | افزودن، حذف و مرتب‌سازی شهرهای دلخواه |
-| 🧭 **مقایسه ساعت** | محاسبه دقیق اختلاف ساعت دو شهر |
-| 🤝 **برنامه‌ریز جلسه** | یافتن ساعت کاری مشترک در ۴۸ ساعت آینده |
-| 🔗 **اشتراک تنظیمات** | لینک قابل اشتراک با شهرها، زبان، تم و تقویم |
-| 🌗 **روز/شب** | وضعیت خورشید برای هر شهر |
-| 🌍 **دو زبانه** | فارسی (RTL) + انگلیسی (LTR) با تبدیل اعداد |
-| 🎨 **تم روشن/تیره** | ذخیره خودکار |
-| 📲 **PWA آفلاین** | Service Worker، نصب روی دستگاه |
+| ⏱️ **همگام‌سازی NTP**      | Cloudflare edge → WorldTimeAPI، دقت میلی‌ثانیه            |
+| 🏙️ **مدیریت شهرها**        | هر timezone از IANA (۵۰۰+) از طریق دیالوگ، بدون کد        |
+| ⭐ **علاقه‌مندی‌ها**       | افزودن، حذف و مرتب‌سازی شهرهای دلخواه                     |
+| 🧭 **مقایسه ساعت**         | محاسبه دقیق اختلاف ساعت دو شهر                            |
+| 🤝 **برنامه‌ریز جلسه**     | یافتن ساعت کاری مشترک در ۴۸ ساعت آینده                    |
+| 🔗 **اشتراک تنظیمات**      | لینک قابل اشتراک با شهرها، زبان، تم و تقویم               |
+| 🌗 **روز/شب**              | وضعیت خورشید برای هر شهر                                  |
+| 🌍 **دو زبانه**            | فارسی (RTL) + انگلیسی (LTR) با تبدیل اعداد                |
+| 🎨 **تم روشن/تیره**        | ذخیره خودکار                                              |
+| 📲 **PWA آفلاین**          | Service Worker، نصب روی دستگاه                            |
 
 ### نصب و راه‌اندازی
 
 **اجرای مستقیم:**
+
 ```bash
 # فایل index.html را در مرورگر باز کنید
 ```
 
 **سرور محلی (توصیه‌شده برای PWA):**
+
 ```bash
 python -m http.server 8000   # Python
 npx serve .                  # Node.js
@@ -93,29 +95,31 @@ No framework, no API key, no server, no database — just static files.
 
 ### Key Features
 
-| Feature | Description |
-|---------|-------------|
-| 🌐 **35 World Cities** | Validated IANA timezones across 6 regions |
-| 📅 **Jalali & Gregorian** | Borkowski (1996) algorithm — exact for years -61..3177 |
-| ⏱️ **NTP Sync** | Cloudflare edge → WorldTimeAPI, millisecond accuracy |
-| 🏙️ **City Manager** | Any IANA timezone (500+) via dialog, no code |
-| ⭐ **Favorites** | Add, remove, and sort preferred time zones |
-| 🧭 **Time Comparison** | Exact hour difference between any two cities |
-| 🤝 **Meeting Planner** | Find overlapping 9–18 working hours in the next 48h |
-| 🔗 **Shareable URL** | Share cities, language, theme, and calendar in one link |
-| 🌗 **Day/Night** | Sun status indicator for each city |
-| 🌍 **Bilingual** | Persian (RTL) + English (LTR) with numeral conversion |
-| 🎨 **Light/Dark** | Auto-persisted theme |
-| 📲 **Offline PWA** | Service Worker, installable on device |
+| Feature                   | Description                                             |
+| ------------------------- | ------------------------------------------------------- |
+| 🌐 **35 World Cities**    | Validated IANA timezones across 6 regions               |
+| 📅 **Jalali & Gregorian** | Borkowski (1996) algorithm — exact for years -61..3177  |
+| ⏱️ **NTP Sync**           | Cloudflare edge → WorldTimeAPI, millisecond accuracy    |
+| 🏙️ **City Manager**       | Any IANA timezone (500+) via dialog, no code            |
+| ⭐ **Favorites**          | Add, remove, and sort preferred time zones              |
+| 🧭 **Time Comparison**    | Exact hour difference between any two cities            |
+| 🤝 **Meeting Planner**    | Find overlapping 9–18 working hours in the next 48h     |
+| 🔗 **Shareable URL**      | Share cities, language, theme, and calendar in one link |
+| 🌗 **Day/Night**          | Sun status indicator for each city                      |
+| 🌍 **Bilingual**          | Persian (RTL) + English (LTR) with numeral conversion   |
+| 🎨 **Light/Dark**         | Auto-persisted theme                                    |
+| 📲 **Offline PWA**        | Service Worker, installable on device                   |
 
 ### Installation
 
 **Direct open:**
+
 ```bash
 # Open index.html in your browser
 ```
 
 **Local server (recommended for PWA):**
+
 ```bash
 python -m http.server 8000   # Python
 npx serve .                  # Node.js
@@ -234,23 +238,23 @@ Borkowski (1996) — exact for years **−61..3177**, matches `Intl` `fa-IR-u-ca
 
 35 cities pre-loaded. Any IANA timezone (500+) addable via the **City Manager** dialog.
 
-| Region | Cities |
-|--------|--------|
-| Americas | New York, Los Angeles, Toronto, Mexico City, São Paulo, Buenos Aires |
-| Europe | London, Paris, Berlin, Madrid, Rome, Amsterdam, Stockholm, Istanbul |
-| Middle East | Dubai, Tehran, Riyadh, Doha |
-| Africa | Cairo, Lagos, Nairobi, Cape Town, Casablanca |
+| Region       | Cities                                                                                              |
+| ------------ | --------------------------------------------------------------------------------------------------- |
+| Americas     | New York, Los Angeles, Toronto, Mexico City, São Paulo, Buenos Aires                                |
+| Europe       | London, Paris, Berlin, Madrid, Rome, Amsterdam, Stockholm, Istanbul                                 |
+| Middle East  | Dubai, Tehran, Riyadh, Doha                                                                         |
+| Africa       | Cairo, Lagos, Nairobi, Cape Town, Casablanca                                                        |
 | Asia Pacific | Tokyo, Seoul, Beijing, Singapore, Bangkok, Jakarta, Mumbai, Karachi, Dhaka, Sydney, Perth, Auckland |
 
 ### Browser Compatibility
 
-| Feature | Chrome 80+ | Firefox 75+ | Safari 13+ | Edge 80+ |
-|---------|-----------|------------|-----------|---------|
-| Intl.DateTimeFormat | ✅ | ✅ | ✅ | ✅ |
-| CSS Custom Properties | ✅ | ✅ | ✅ | ✅ |
-| CSS Grid | ✅ | ✅ | ✅ | ✅ |
-| Service Worker | ✅ | ✅ | ✅ | ✅ |
-| RTL | ✅ | ✅ | ✅ | ✅ |
+| Feature               | Chrome 80+ | Firefox 75+ | Safari 13+ | Edge 80+ |
+| --------------------- | ---------- | ----------- | ---------- | -------- |
+| Intl.DateTimeFormat   | ✅         | ✅          | ✅         | ✅       |
+| CSS Custom Properties | ✅         | ✅          | ✅         | ✅       |
+| CSS Grid              | ✅         | ✅          | ✅         | ✅       |
+| Service Worker        | ✅         | ✅          | ✅         | ✅       |
+| RTL                   | ✅         | ✅          | ✅         | ✅       |
 
 ---
 
@@ -290,6 +294,6 @@ Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 **🌍 Time connects us all. · زمان، همه‌ی ما را به هم متصل می‌کند.**
 
-*© 2026 IVA TIME · آیوا تایم · v5.0.0*
+_© 2026 IVA TIME · آیوا تایم · v5.0.0_
 
 </div>

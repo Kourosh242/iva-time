@@ -16,6 +16,7 @@
    - **Source** را روی **GitHub Actions** تنظیم کنید
 
 2. **Push به main**
+
    ```bash
    git push origin main
    ```
@@ -41,6 +42,7 @@ git push origin main
 ### مراحل
 
 1. **دانلود فایل‌ها**
+
    ```bash
    # از GitHub دانلود کنید یا clone کنید
    git clone https://github.com/Kourosh242/iva-time.git
@@ -66,6 +68,7 @@ git push origin main
    ```
 
 ### نکات مهم
+
 - ⚠️ فایل `.github/` را آپلود **نکنید**
 - ⚠️ مطمئن شوید `index.html` در ریشه است
 - ✅ فایل‌ها باید با فرمت UTF-8 باشند
@@ -92,6 +95,7 @@ git push origin main
    - روی **Deploy site** کلیک کنید
 
 ### دامنه سفارشی (اختیاری)
+
 - به **Domain settings** بروید
 - **Add custom domain** را بزنید
 - DNS را تنظیم کنید
@@ -103,6 +107,7 @@ git push origin main
 ### مراحل
 
 1. **CLI**
+
    ```bash
    npm i -g vercel
    vercel login
@@ -157,7 +162,7 @@ server {
     server_name your-domain.com;
     root /var/www/iva-time;
     index index.html;
-    
+
     location / {
         try_files $uri $uri/ =404;
     }
@@ -200,12 +205,12 @@ sudo certbot --nginx -d your-domain.com
 
 ## 🐛 عیب‌یابی
 
-| مشکل | راه‌حل |
-|-------|--------|
-| صفحه سفید | بررسی کنید `index.html` وجود دارد |
-| CSS اعمال نمی‌شود | کش مرورگر را پاک کنید |
-| تصاویر نمایش داده نمی‌شوند | مسیرها را بررسی کنید |
-| فونت بارگذاری نمی‌شود | فایل font را بررسی کنید |
+| مشکل                       | راه‌حل                            |
+| -------------------------- | --------------------------------- |
+| صفحه سفید                  | بررسی کنید `index.html` وجود دارد |
+| CSS اعمال نمی‌شود          | کش مرورگر را پاک کنید             |
+| تصاویر نمایش داده نمی‌شوند | مسیرها را بررسی کنید              |
+| فونت بارگذاری نمی‌شود      | فایل font را بررسی کنید           |
 
 ---
 
@@ -225,6 +230,7 @@ This guide explains various deployment methods for IVA TIME.
    - Set **Source** to **GitHub Actions**
 
 2. **Push to main**
+
    ```bash
    git push origin main
    ```

@@ -104,7 +104,7 @@ If you prefer, you can also use the GitHub Pages version directly:
 
 ```html
 <script src="https://kourosh242.github.io/iva-time/app.js"></script>
-<link rel="stylesheet" href="https://kourosh242.github.io/iva-time/style.css">
+<link rel="stylesheet" href="https://kourosh242.github.io/iva-time/style.css" />
 ```
 
 Note: This requires the files to be served from the same origin for full functionality.

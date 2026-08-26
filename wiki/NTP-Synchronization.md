@@ -35,14 +35,15 @@
 
 ### منابع زمانی
 
-| منبع | آدرس | توضیح |
-|------|------|-------|
-| Cloudflare Edge | `cdn-cgi/trace` | سریع، CORS باز |
-| WorldTimeAPI | `worldtimeapi.org/api/timezone/Etc/UTC` | NTP-disciplined |
+| منبع            | آدرس                                    | توضیح           |
+| --------------- | --------------------------------------- | --------------- |
+| Cloudflare Edge | `cdn-cgi/trace`                         | سریع، CORS باز  |
+| WorldTimeAPI    | `worldtimeapi.org/api/timezone/Etc/UTC` | NTP-disciplined |
 
 ### وضعیت همگام‌سازی
 
 نوار وضعیت NTP اطلاعات زیر را نمایش می‌دهد:
+
 - **منبع**: Cloudflare یا WorldTimeAPI
 - **RTT**: زمان رفت و برگشت به میلی‌ثانیه
 - **offset**: انحراف ساعت محلی (مثبت = عقب، منفی = جلو)
@@ -91,14 +92,15 @@ Browsers cannot access raw **UDP sockets** (port 123). To solve this, IVA TIME u
 
 ### Time Sources
 
-| Source | Address | Description |
-|--------|---------|-------------|
-| Cloudflare Edge | `cdn-cgi/trace` | Fast, CORS open |
-| WorldTimeAPI | `worldtimeapi.org/api/timezone/Etc/UTC` | NTP-disciplined |
+| Source          | Address                                 | Description     |
+| --------------- | --------------------------------------- | --------------- |
+| Cloudflare Edge | `cdn-cgi/trace`                         | Fast, CORS open |
+| WorldTimeAPI    | `worldtimeapi.org/api/timezone/Etc/UTC` | NTP-disciplined |
 
 ### Sync Status
 
 The NTP status bar displays:
+
 - **Source**: Cloudflare or WorldTimeAPI
 - **RTT**: Round-trip time in milliseconds
 - **Offset**: Local clock deviation (positive = behind, negative = ahead)
@@ -118,13 +120,13 @@ The NTP status bar displays:
 
 ```javascript
 // Measure the time offset between local clock and server
-const serverTime = response.timestamp;  // Unix timestamp from server
-const localTime = Date.now();           // Local browser time
-const rtt = response.rtt;               // Round-trip time in ms
+const serverTime = response.timestamp; // Unix timestamp from server
+const localTime = Date.now(); // Local browser time
+const rtt = response.rtt; // Round-trip time in ms
 
 // Estimate what the local clock was when server stamped the time
 // Account for half the RTT (time for request to reach server)
-offsetMs = serverTime - (localTime - rtt/2);
+offsetMs = serverTime - (localTime - rtt / 2);
 ```
 
 ### Fallback Strategy
@@ -140,6 +142,7 @@ offsetMs = serverTime - (localTime - rtt/2);
 ### Accuracy
 
 The sync achieves **~millisecond accuracy** by:
+
 - Using HTTP Date headers with sub-second precision
 - Accounting for network latency with RTT/2 estimation
 - Applying consistent offset across all clocks
@@ -150,26 +153,26 @@ The sync achieves **~millisecond accuracy** by:
 
 ### Sync Mode Selector
 
-| Mode | Description |
-|------|-------------|
-| Auto · NTP network | Default, uses network sync |
-| Local clock only | Disables network sync, uses device clock |
+| Mode               | Description                              |
+| ------------------ | ---------------------------------------- |
+| Auto · NTP network | Default, uses network sync               |
+| Local clock only   | Disables network sync, uses device clock |
 
 ### Status Indicators
 
-| Indicator | Color | Meaning |
-|-----------|-------|---------|
-| 🟢 Green dot | ok | NTP synced successfully |
-| 🟠 Orange dot | busy | Currently syncing |
-| 🟡 Yellow dot | warn | Local clock only |
+| Indicator     | Color | Meaning                 |
+| ------------- | ----- | ----------------------- |
+| 🟢 Green dot  | ok    | NTP synced successfully |
+| 🟠 Orange dot | busy  | Currently syncing       |
+| 🟡 Yellow dot | warn  | Local clock only        |
 
 ---
 
 ## 🔧 Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| "Syncing..." never ends | Check internet connection, try again |
-| Always shows "Local clock" | Network may be blocking time servers |
-| Offset seems wrong | Device clock may be significantly off |
-| Times don't match other clocks | Try manual sync, check RTT |
+| Issue                          | Solution                              |
+| ------------------------------ | ------------------------------------- |
+| "Syncing..." never ends        | Check internet connection, try again  |
+| Always shows "Local clock"     | Network may be blocking time servers  |
+| Offset seems wrong             | Device clock may be significantly off |
+| Times don't match other clocks | Try manual sync, check RTT            |

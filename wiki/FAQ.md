@@ -73,6 +73,7 @@ It uses `Intl.supportedValuesOf('timeZone')` which returns all IANA timezones th
 
 **How accurate is the time?**
 With NTP sync enabled:
+
 - Cloudflare edge: typically ±50ms
 - WorldTimeAPI: typically ±200ms
 - Local fallback: depends on your device clock
@@ -90,6 +91,7 @@ This accounts for half the round-trip time, similar to how NTP itself works.
 
 **Why 4 CSS files?**
 Each CSS file has a clear responsibility:
+
 - `style.css` — design tokens, layout, base components, RTL
 - `features.css` — panels, dialogs, card actions (features.js styles)
 - `header-fixes.css` — header-specific layout refinements

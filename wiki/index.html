@@ -1,33 +1,41 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="IVA TIME Wiki — مستندات کامل ساعت جهانی دو‌زبانه آیوا تایم">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'">
-<title>ویکی آیوا تایم · IVA TIME Wiki</title>
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="wiki.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="IVA TIME Wiki — مستندات کامل ساعت جهانی دو‌زبانه آیوا تایم"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'"
+    />
+    <title>ویکی آیوا تایم · IVA TIME Wiki</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="wiki.css" />
+  </head>
+  <body>
+    <aside>
+      <a class="sidebar-logo" href="../">
+        <img src="../assets/iva-logo.svg" alt="IVA TIME logo" />
+        <span>IVA TIME<small>WIKI · ویکی</small></span>
+      </a>
 
-<aside>
-  <a class="sidebar-logo" href="../">
-    <img src="../assets/iva-logo.svg" alt="IVA TIME logo">
-    <span>IVA TIME<small>WIKI · ویکی</small></span>
-  </a>
+      <a class="back-link" href="../"> ← بازگشت به سایت </a>
 
-  <a class="back-link" href="../">
-    ← بازگشت به سایت
-  </a>
+      <input
+        id="search"
+        type="search"
+        placeholder="جست‌وجوی صفحات… / Search pages…"
+        aria-label="جست‌وجو در ویکی"
+      />
 
-  <input id="search" type="search" placeholder="جست‌وجوی صفحات… / Search pages…" aria-label="جست‌وجو در ویکی">
+      <nav id="pages" aria-label="صفحات ویکی"></nav>
+    </aside>
 
-  <nav id="pages" aria-label="صفحات ویکی"></nav>
-</aside>
+    <main aria-live="polite"></main>
 
-<main aria-live="polite"></main>
-
-<script src="wiki.js"></script>
-</body>
+    <script src="wiki.js"></script>
+  </body>
 </html>

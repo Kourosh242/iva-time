@@ -1,4 +1,5 @@
 # IVA TIME · آیوا تایم
+
 # Documentation Pull Request · درخواست Pull مستندات
 
 ## 🇮🇷 فارسی
@@ -52,12 +53,14 @@ wiki/
 ## ✍️ Writing Style
 
 ### Persian (RTL)
+
 - Use RTL text direction
 - Persian numerals: ۰۱۲۳۴۵۶۷۸۹
 - Persian punctuation where appropriate
 - Vazirmatn font for code blocks
 
 ### English (LTR)
+
 - Clear, concise language
 - American or British spelling consistently
 - Proper grammar and punctuation
@@ -67,12 +70,14 @@ wiki/
 ## 🔗 Linking
 
 ### Internal Links
+
 ```markdown
-[Quick Start](Quick-Start)           ← Same folder
-[Home](../wiki/Home)                ← Parent folder
+[Quick Start](Quick-Start) ← Same folder
+[Home](../wiki/Home) ← Parent folder
 ```
 
 ### External Links
+
 ```markdown
 [MDN Web Docs](https://developer.mozilla.org/)
 [IANA Time Zones](https://www.iana.org/time-zones)

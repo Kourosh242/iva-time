@@ -102,11 +102,11 @@ git push origin master
 
 GitHub Wiki uses Markdown files. The file names become page URLs:
 
-| File | URL |
-|------|-----|
-| Home.md | /wiki/Home |
-| Quick-Start.md | /wiki/Quick-Start |
-| Installation.md | /wiki/Installation |
+| File             | URL                 |
+| ---------------- | ------------------- |
+| Home.md          | /wiki/Home          |
+| Quick-Start.md   | /wiki/Quick-Start   |
+| Installation.md  | /wiki/Installation  |
 | API-Reference.md | /wiki/API-Reference |
 
 ---
@@ -137,18 +137,18 @@ git push origin master
 
 After deployment, your wiki will have:
 
-| Page | Title |
-|------|-------|
-| Home | صفحه اصلی |
-| Quick-Start | شروع سریع |
-| Installation | نصب |
-| World-Clocks | ساعت‌های جهان |
-| Calendar-System | سیستم تقویم |
-| NTP-Synchronization | همگام‌سازی NTP |
-| Bilingual-Support | پشتیبانی دو زبانه |
-| Architecture | معماری |
-| API-Reference | مرجع API |
-| Adding-New-Cities | افزودن شهرهای جدید |
-| Changelog | تاریخچه تغییرات |
-| FAQ | سوالات متداول |
-| Troubleshooting | عیب‌یابی |
+| Page                | Title              |
+| ------------------- | ------------------ |
+| Home                | صفحه اصلی          |
+| Quick-Start         | شروع سریع          |
+| Installation        | نصب                |
+| World-Clocks        | ساعت‌های جهان      |
+| Calendar-System     | سیستم تقویم        |
+| NTP-Synchronization | همگام‌سازی NTP     |
+| Bilingual-Support   | پشتیبانی دو زبانه  |
+| Architecture        | معماری             |
+| API-Reference       | مرجع API           |
+| Adding-New-Cities   | افزودن شهرهای جدید |
+| Changelog           | تاریخچه تغییرات    |
+| FAQ                 | سوالات متداول      |
+| Troubleshooting     | عیب‌یابی           |
