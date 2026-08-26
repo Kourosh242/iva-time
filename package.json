@@ -1,0 +1,1 @@
+{"name":"iva-time","version":"4.0.0","private":true,"type":"module","scripts":{"test":"node --test","lint":"eslint app.js features.js sw.js wiki/wiki.js calendar-core.mjs tests","format":"prettier --write \"**/*.{js,mjs,json,md,html,css}\"","format:check":"prettier --check \"**/*.{js,mjs,json,md,html,css}\""},"devDependencies":{"eslint":"^9.9.0","prettier":"^3.3.3"}}

@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-08-26
+
+### Added · افزوده شده
+
+- مدیریت منطقه‌های زمانی، حذف شهر و محبوب‌های پایدار
+- مقایسه اختلاف ساعت و برنامه‌ریز جلسه چندشهری
+- مرتب‌سازی، لینک اشتراک تنظیمات و ذخیره کامل ترجیحات
+- PWA آفلاین و نصب‌شونده
+- Wiki مستقل و بدون CDN
+- CSP، دسترسی صفحه‌کلید و کاهش حرکت
+- تست خودکار، ESLint، Prettier و Lighthouse CI
+
+### Changed · تغییر یافته
+
+- تکمیل ترجمه فارسی شهرها، کشورها، تاریخ‌ها و کنترل‌ها
+- اصلاح تعداد شهرهای پیش‌فرض به ۳۵
+
 ## [2.0.0] - 1405 / 2025
 
 ### Added · افزوده شده

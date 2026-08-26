@@ -4,7 +4,7 @@
 
 ### لیست شهرهای پشتیبانی‌شده
 
-آیوا تایم از **۳۸ شهر** در **۶ منطقه** پشتیبانی می‌کند:
+آیوا تایم به‌صورت پیش‌فرض از **۳۵ شهر** پشتیبانی می‌کند و کاربر می‌تواند منطقه‌های زمانی بیشتری اضافه کند:
 
 #### آمریکا (Americas)
 | شهر | کشور | منطقه زمانی |
@@ -67,7 +67,7 @@
 
 ### Supported Cities List
 
-IVA TIME supports **38 cities** in **6 regions**:
+IVA TIME includes **35 cities** by default and lets users add more time zones:
 
 #### Americas
 | City | Country | Timezone |

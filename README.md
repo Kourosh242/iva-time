@@ -1,7 +1,7 @@
 <!---
 🇮🇷 IVA TIME · آیوا تایم
 Bilingual World Clock · ساعت جهانی دو زبانه
-Version 2.0 · ۱۴۰۵
+Version 4.0 · ۱۴۰۵
 -->
 
 <div align="center">
@@ -39,7 +39,7 @@ Version 2.0 · ۱۴۰۵
 
 | ویژگی | توضیح |
 |-------|-------|
-| 🌐 **۳۸ شهر جهان** | با منطقه زمانی IANA معتبر |
+| 🌐 **۳۵ شهر جهان** | با منطقه زمانی IANA معتبر |
 | 📅 **تقویم شمسی و میلادی** | تبدیل دقیق الگوریتم Borkowski |
 | ⏱️ **همگام‌سازی NTP** | محاسبه انحراف ساعت با دقت میلی‌ثانیه |
 | 🌗 **تشخیص روز و شب** | نمایش وضعیت خورشید در هر شهر |
@@ -49,6 +49,11 @@ Version 2.0 · ۱۴۰۵
 | 📱 **واکنش‌گرا** | سازگار با موبایل و دسکتاپ |
 | 🇮🇷 **پرچم کشورها** | نمایش خودکار با Unicode |
 | 🔄 **DST خودکار** | به‌روزرسانی خودکار ساعت تابستانی |
+| ⭐ **شهرهای محبوب** | افزودن، حذف و مرتب‌سازی شهرهای دلخواه |
+| 🧭 **مقایسه ساعت** | محاسبه اختلاف دقیق ساعت دو شهر |
+| 🤝 **برنامه‌ریز جلسه** | یافتن ساعت کاری مشترک چند منطقه زمانی |
+| 🔗 **اشتراک تنظیمات** | لینک قابل اشتراک برای شهرها، زبان، تم و تقویم |
+| 📲 **PWA آفلاین** | نصب روی دستگاه و استفاده بدون اینترنت |
 
 ### NTP چیست؟
 
@@ -109,7 +114,7 @@ php -S localhost:8000
 
 | Feature | Description |
 |---------|-------------|
-| 🌐 **38 World Cities** | Validated against official IANA timezones |
+| 🌐 **35 World Cities** | Validated against official IANA timezones |
 | 📅 **Jalali & Gregorian Calendar** | Borkowski algorithm for precise conversion |
 | ⏱️ **NTP Time Sync** | Millisecond-accurate offset measurement |
 | 🌗 **Day/Night Indicator** | Sun status for each city |
@@ -119,6 +124,11 @@ php -S localhost:8000
 | 📱 **Responsive** | Works on mobile and desktop |
 | 🇮🇷 **Country Flags** | Auto-generated with Unicode |
 | 🔄 **Auto DST** | Automatic daylight-saving updates |
+| ⭐ **Favorite Cities** | Add, remove and sort preferred time zones |
+| 🧭 **Time Comparison** | Calculate the exact difference between cities |
+| 🤝 **Meeting Planner** | Find overlapping working hours across time zones |
+| 🔗 **Shareable Settings** | Share cities, language, theme and calendar in one link |
+| 📲 **Offline PWA** | Install on a device and keep using it offline |
 
 ### What is NTP?
 
@@ -220,9 +230,9 @@ iva-time/
 
 ## 📖 Wiki · مستندات
 
-برای مستندات کامل به [Wiki پروژه](https://github.com/Kourosh242/iva-time/wiki) مراجعه کنید.
+برای مستندات کامل به [Wiki آنلاین پروژه](https://kourosh242.github.io/iva-time/wiki/) مراجعه کنید.
 
-For complete documentation, visit the [project Wiki](https://github.com/Kourosh242/iva-time/wiki).
+For complete documentation, visit the [online project Wiki](https://kourosh242.github.io/iva-time/wiki/).
 
 ### Quick Links · لینک‌های سریع
 

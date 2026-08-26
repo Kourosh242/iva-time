@@ -100,6 +100,12 @@ const DOW_EN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Satur
 const DOW_FA_S=['ی','د','س','چ','پ','ج','ش'];
 const DOW_EN_S=['Su','Mo','Tu','We','Th','Fr','Sa'];
 const toFa=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[+d]);
+const FA_NAMES={
+  'New York':'نیویورک','Los Angeles':'لس‌آنجلس','Toronto':'تورنتو','Mexico City':'مکزیکوسیتی','São Paulo':'سائوپائولو','Buenos Aires':'بوئنوس آیرس','London':'لندن','Paris':'پاریس','Berlin':'برلین','Madrid':'مادرید','Rome':'رم','Amsterdam':'آمستردام','Stockholm':'استکهلم','Istanbul':'استانبول','Dubai':'دبی','Tehran':'تهران','Riyadh':'ریاض','Doha':'دوحه','Cairo':'قاهره','Lagos':'لاگوس','Nairobi':'نایروبی','Cape Town':'کیپ‌تاون','Casablanca':'کازابلانکا','Tokyo':'توکیو','Seoul':'سئول','Beijing':'پکن','Singapore':'سنگاپور','Bangkok':'بانکوک','Jakarta':'جاکارتا','Mumbai':'بمبئی','Karachi':'کراچی','Dhaka':'داکا','Sydney':'سیدنی','Perth':'پرت','Auckland':'اوکلند',
+  'United States':'ایالات متحده','Canada':'کانادا','Mexico':'مکزیک','Brazil':'برزیل','Argentina':'آرژانتین','United Kingdom':'بریتانیا','France':'فرانسه','Germany':'آلمان','Spain':'اسپانیا','Italy':'ایتالیا','Netherlands':'هلند','Sweden':'سوئد','Türkiye':'ترکیه','United Arab Emirates':'امارات متحده عربی','Iran':'ایران','Saudi Arabia':'عربستان سعودی','Qatar':'قطر','Egypt':'مصر','Nigeria':'نیجریه','Kenya':'کنیا','South Africa':'آفریقای جنوبی','Morocco':'مراکش','Japan':'ژاپن','South Korea':'کره جنوبی','China':'چین','Thailand':'تایلند','Indonesia':'اندونزی','India':'هند','Pakistan':'پاکستان','Bangladesh':'بنگلادش','Australia':'استرالیا','New Zealand':'نیوزیلند'
+};
+const REGION_FA={'All':'همه','Americas':'قاره آمریکا','Europe':'اروپا','Middle East':'خاورمیانه','Africa':'آفریقا','Asia Pacific':'آسیا و اقیانوسیه'};
+const localName=value=>lang==='fa'?(FA_NAMES[value]||value):value;
 
 const P=`New York|United States|US|America/New_York|Americas
 Los Angeles|United States|US|America/Los_Angeles|Americas
@@ -139,7 +145,7 @@ Auckland|New Zealand|NZ|Pacific/Auckland|Asia Pacific`.split('\n').map(x=>{const
 
 const C={
   en:{
-    clocks:'World clocks',about:'About',calendar:'Calendar',
+    clocks:'World clocks',about:'About',calendar:'Calendar',wiki:'Wiki',
     eyebrow:'THE WORLD, RIGHT ON TIME',line1:'Every city.',line2:'One moment.',
     lead:'A beautifully simple world clock for teams, travelers, and everyone across time zones.',
     cta:'Explore the world ↓',local:'YOUR LOCAL TIME',
@@ -155,10 +161,10 @@ const C={
     accurate:'Always accurate',accurateP:'Automatic daylight-saving updates powered by your browser.',
     find:'Find anywhere',findP:'Search cities and countries and filter by global region.',
     night:'Day or night',nightP:'Know whether the sun is up before you call.',
-    footer:'Time connects us all.'
+    footer:'Time connects us all.',empty:'No matching city found.',theme:'Switch light/dark theme',prev:'Previous month',next:'Next month',skip:'Skip to content',install:'Install',manageCities:'＋ Manage cities',compare:'Compare time',planner:'Meeting planner',plannerHelp:'Select cities to find overlapping working hours.',findTimes:'Find suitable times',sort:'Sort',sortDefault:'Default',sortFavorites:'Favorites',sortName:'Name',sortOffset:'UTC offset',share:'Share settings',citySearch:'Search city or time zone…',done:'Done'
   },
   fa:{
-    clocks:'ساعت‌های جهان',about:'درباره',calendar:'تقویم',
+    clocks:'ساعت‌های جهان',about:'درباره',calendar:'تقویم',wiki:'راهنما',
     eyebrow:'جهان، دقیق و به‌موقع',line1:'هر شهر.',line2:'یک لحظه.',
     lead:'ساعتی زیبا و ساده برای تیم‌ها، مسافران و همه‌ی کسانی که میان منطقه‌های زمانی زندگی می‌کنند.',
     cta:'سفر در زمان ↓',local:'زمان محلی شما',
@@ -174,17 +180,17 @@ const C={
     accurate:'همیشه دقیق',accurateP:'تنظیم خودکار ساعت تابستانی با مرورگر شما.',
     find:'هرجا را پیدا کن',findP:'شهرها را جست‌وجو و بر اساس منطقه فیلتر کنید.',
     night:'روز یا شب',nightP:'پیش از تماس، روز یا شب بودن مقصد را ببینید.',
-    footer:'زمان، همه‌ی ما را به هم متصل می‌کند.'
+    footer:'زمان، همه‌ی ما را به هم متصل می‌کند.',empty:'شهری با این مشخصات پیدا نشد.',theme:'تغییر حالت روشن و تیره',prev:'ماه قبل',next:'ماه بعد',skip:'رفتن به محتوای اصلی',install:'نصب برنامه',manageCities:'＋ مدیریت شهرها',compare:'مقایسه ساعت',planner:'برنامه‌ریز جلسه',plannerHelp:'شهرها را انتخاب کنید تا ساعت کاری مشترک پیدا شود.',findTimes:'پیداکردن زمان مناسب',sort:'مرتب‌سازی',sortDefault:'پیش‌فرض',sortFavorites:'محبوب‌ها',sortName:'نام شهر',sortOffset:'اختلاف UTC',share:'اشتراک تنظیمات',citySearch:'جست‌وجوی شهر یا منطقه زمانی…',done:'تأیید'
   }
 };
 
-let lang='en',region='All',limit=12,q='';
+let lang=localStorage.getItem('iva-lang')||((navigator.language||'').toLowerCase().startsWith('fa')?'fa':'en'),region='All',limit=12,q='';
 let calSys='j',calY=1400,calM=1;
 const $=s=>document.querySelector(s);
 const num=v=>lang==='fa'?toFa(v):String(v);
 const flag=c=>[...c].map(x=>String.fromCodePoint(127397+x.charCodeAt(0))).join('');
-const time=(d,z,s=false)=>new Intl.DateTimeFormat('en-GB',{timeZone:z,hour:'2-digit',minute:'2-digit',second:s?'2-digit':undefined,hour12:false}).format(d);
-const date=(d,z)=>new Intl.DateTimeFormat('en-US',{timeZone:z,weekday:'short',month:'short',day:'numeric'}).format(d);
+const time=(d,z,s=false)=>new Intl.DateTimeFormat(lang==='fa'?'fa-IR':'en-GB',{timeZone:z,hour:'2-digit',minute:'2-digit',second:s?'2-digit':undefined,hour12:false}).format(d);
+const date=(d,z)=>new Intl.DateTimeFormat(lang==='fa'?'fa-IR-u-ca-gregory':'en-US',{timeZone:z,weekday:'short',month:'short',day:'numeric'}).format(d);
 const LOCAL_TZ=Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';
 
 /* ================= NTP / network time sync =================
@@ -363,6 +369,7 @@ function setCalSys(sys){
   const t=new Date(now());
   const j=jalaliOf(t);
   calSys=sys;
+  localStorage.setItem('iva-calendar',sys);
   if(sys==='j'){calY=j[0];calM=j[1];}
   else{calY=t.getFullYear();calM=t.getMonth()+1;}
   document.querySelectorAll('#calSystem button').forEach(b=>b.classList.toggle('on',b.dataset.cal===sys));
@@ -393,14 +400,17 @@ function renderToday(){
 /* ================= clocks & i18n (original, now offset-aware) ================= */
 function render(){
   const d=new Date(now());
-  const list=P.filter(p=>(region==='All'||p.region===region)&&(p.city+' '+p.country).toLowerCase().includes(q));
+  let list=P.filter(p=>(region==='All'||p.region===region)&&(`${p.city} ${p.country} ${FA_NAMES[p.city]||''} ${FA_NAMES[p.country]||''}`).toLowerCase().includes(q));
+  if(window.ivaPrepareList)list=window.ivaPrepareList(list,d);
   $('#local').textContent=time(d,LOCAL_TZ,true);
   $('#grid').innerHTML=list.slice(0,limit).map(p=>{
     const h=+new Intl.DateTimeFormat('en',{timeZone:p.zone,hour:'numeric',hourCycle:'h23'}).format(d);
-    return `<article class="card"><div class="top"><span class="flag">${flag(p.code)}</span><span>${h>6&&h<19?(lang==='fa'?'روز':'Day'):(lang==='fa'?'شب':'Night')}</span></div><div class="time">${time(d,p.zone)}</div><h3>${p.city}</h3><p>${p.country}</p><p class="date">${date(d,p.zone)}</p></article>`;
+    const actions=window.ivaCardActions?window.ivaCardActions(p):'';
+    return `<article class="card" data-zone="${p.zone}"><div class="top"><span class="flag">${flag(p.code)}</span><span>${h>6&&h<19?(lang==='fa'?'روز':'Day'):(lang==='fa'?'شب':'Night')}</span></div><div class="time">${time(d,p.zone)}</div><h3>${localName(p.city)}</h3><p>${localName(p.country)}</p><p class="date">${date(d,p.zone)}</p>${actions}</article>`;
   }).join('');
+  $('#empty').hidden=list.length!==0;
   $('#more').style.display=limit<list.length?'block':'none';
-  $('#ticker').innerHTML=P.slice(0,8).map(p=>`<span>${flag(p.code)} ${p.city} · ${time(d,p.zone)}</span>`).join('');
+  $('#ticker').innerHTML=P.slice(0,8).map(p=>`<span>${flag(p.code)} ${localName(p.city)} · ${time(d,p.zone)}</span>`).join('');
   renderToday();
 }
 function translate(){
@@ -413,11 +423,17 @@ function translate(){
   document.querySelectorAll('[data-placeholder]').forEach(e=>{
     if(t[e.dataset.placeholder]!==undefined)e.placeholder=t[e.dataset.placeholder];
   });
+  document.querySelectorAll('[data-aria]').forEach(e=>{
+    if(t[e.dataset.aria]!==undefined)e.setAttribute('aria-label',t[e.dataset.aria]);
+  });
   $('#lang').textContent=lang==='en'?'فا':'EN';
+  $('#lang').setAttribute('aria-label',lang==='en'?'نمایش فارسی':'Show English');
+  document.querySelectorAll('#filters button').forEach(b=>{b.textContent=lang==='fa'?REGION_FA[b.dataset.region]:b.dataset.region;});
   render();
   renderCal();
   renderToday();
   updateSyncUI();
+  if(window.ivaAfterTranslate)window.ivaAfterTranslate();
 }
 /* ================= /clocks & i18n ================= */
 
@@ -425,6 +441,7 @@ function translate(){
 ['All','Americas','Europe','Middle East','Africa','Asia Pacific'].forEach(r=>{
   const b=document.createElement('button');
   b.textContent=r;
+  b.dataset.region=r;
   b.className=r==='All'?'on':'';
   b.onclick=()=>{
     region=r;
@@ -442,9 +459,13 @@ $('#search').oninput=e=>{
 $('#more').onclick=()=>{limit+=12;render();};
 $('#lang').onclick=()=>{
   lang=lang==='en'?'fa':'en';
+  localStorage.setItem('iva-lang',lang);
   translate();
 };
-$('#theme').onclick=()=>document.body.classList.toggle('light');
+$('#theme').onclick=()=>{
+  document.body.classList.toggle('light');
+  localStorage.setItem('iva-theme',document.body.classList.contains('light')?'light':'dark');
+};
 $('#year').textContent=new Date().getFullYear();
 $('#calPrev').onclick=()=>calNav(-1);
 $('#calNext').onclick=()=>calNav(1);
@@ -452,8 +473,11 @@ document.querySelectorAll('#calSystem button').forEach(b=>{
   b.onclick=()=>setCalSys(b.dataset.cal);
 });
 $('#syncBtn').onclick=()=>doSync($('#syncSrc').value);
-$('#syncSrc').onchange=e=>doSync(e.target.value);
+$('#syncSrc').onchange=e=>{localStorage.setItem('iva-sync-source',e.target.value);doSync(e.target.value);};
 
+calSys=localStorage.getItem('iva-calendar')||calSys;
+$('#syncSrc').value=localStorage.getItem('iva-sync-source')||'auto';
+if(localStorage.getItem('iva-theme')==='light')document.body.classList.add('light');
 initCal();
 translate();
 doSync($('#syncSrc').value);
