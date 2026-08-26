@@ -2,76 +2,11 @@
 
 ## 🇮🇷 فارسی
 
-### لیست شهرهای پشتیبانی‌شده
+### شهرهای پیش‌فرض (۳۵ شهر)
 
-آیوا تایم به‌صورت پیش‌فرض از **۳۵ شهر** پشتیبانی می‌کند و کاربر می‌تواند منطقه‌های زمانی بیشتری اضافه کند:
-
-#### آمریکا (Americas)
+#### قاره آمریکا
 | شهر | کشور | منطقه زمانی |
-|-----|------|-------------|
-| نیویورک | United States | America/New_York |
-| لس‌آنجلس | United States | America/Los_Angeles |
-| تورنتو | Canada | America/Toronto |
-| مکزیکوسیتی | Mexico | America/Mexico_City |
-| سائوپائولو | Brazil | America/Sao_Paulo |
-| بوئنوس‌آیرس | Argentina | America/Argentina/Buenos_Aires |
-
-#### اروپا (Europe)
-| شهر | کشور | منطقه زمانی |
-|-----|------|-------------|
-| لندن | United Kingdom | Europe/London |
-| پاریس | France | Europe/Paris |
-| برلین | Germany | Europe/Berlin |
-| مادرید | Spain | Europe/Madrid |
-| رم | Italy | Europe/Rome |
-| آمستردام | Netherlands | Europe/Amsterdam |
-| استکهلم | Sweden | Europe/Stockholm |
-| استانبول | Türkiye | Europe/Istanbul |
-
-#### خاورمیانه (Middle East)
-| شهر | کشور | منطقه زمانی |
-|-----|------|-------------|
-| دوبی | UAE | Asia/Dubai |
-| تهران | Iran | Asia/Tehran |
-| ریاض | Saudi Arabia | Asia/Riyadh |
-| دوحه | Qatar | Asia/Qatar |
-
-#### آفریقا (Africa)
-| شهر | کشور | منطقه زمانی |
-|-----|------|-------------|
-| قاهره | Egypt | Africa/Cairo |
-| لاگوس | Nigeria | Africa/Lagos |
-| نایروبی | Kenya | Africa/Nairobi |
-| کیپ‌تاون | South Africa | Africa/Johannesburg |
-| کازابلانکا | Morocco | Africa/Casablanca |
-
-#### آسیا و اقیانوسیه (Asia Pacific)
-| شهر | کشور | منطقه زمانی |
-|-----|------|-------------|
-| توکیو | Japan | Asia/Tokyo |
-| سئول | South Korea | Asia/Seoul |
-| پکن | China | Asia/Shanghai |
-| سنگاپور | Singapore | Asia/Singapore |
-| بانکوک | Thailand | Asia/Bangkok |
-| جاکارتا | Indonesia | Asia/Jakarta |
-| بمبئی | India | Asia/Kolkata |
-| کراچی | Pakistan | Asia/Karachi |
-| داکا | Bangladesh | Asia/Dhaka |
-| سیدنی | Australia | Australia/Sydney |
-| پرت | Australia | Australia/Perth |
-| آوکلند | New Zealand | Pacific/Auckland |
-
----
-
-## 🇬🇧 English
-
-### Supported Cities List
-
-IVA TIME includes **35 cities** by default and lets users add more time zones:
-
-#### Americas
-| City | Country | Timezone |
-|------|---------|----------|
+|-----|------|------------|
 | New York | United States | America/New_York |
 | Los Angeles | United States | America/Los_Angeles |
 | Toronto | Canada | America/Toronto |
@@ -79,9 +14,9 @@ IVA TIME includes **35 cities** by default and lets users add more time zones:
 | São Paulo | Brazil | America/Sao_Paulo |
 | Buenos Aires | Argentina | America/Argentina/Buenos_Aires |
 
-#### Europe
-| City | Country | Timezone |
-|------|---------|----------|
+#### اروپا
+| شهر | کشور | منطقه زمانی |
+|-----|------|------------|
 | London | United Kingdom | Europe/London |
 | Paris | France | Europe/Paris |
 | Berlin | Germany | Europe/Berlin |
@@ -91,26 +26,26 @@ IVA TIME includes **35 cities** by default and lets users add more time zones:
 | Stockholm | Sweden | Europe/Stockholm |
 | Istanbul | Türkiye | Europe/Istanbul |
 
-#### Middle East
-| City | Country | Timezone |
-|------|---------|----------|
+#### خاورمیانه
+| شهر | کشور | منطقه زمانی |
+|-----|------|------------|
 | Dubai | UAE | Asia/Dubai |
-| Tehran | Iran | Asia/Tehran |
+| **Tehran** | **Iran** | **Asia/Tehran** |
 | Riyadh | Saudi Arabia | Asia/Riyadh |
 | Doha | Qatar | Asia/Qatar |
 
-#### Africa
-| City | Country | Timezone |
-|------|---------|----------|
+#### آفریقا
+| شهر | کشور | منطقه زمانی |
+|-----|------|------------|
 | Cairo | Egypt | Africa/Cairo |
 | Lagos | Nigeria | Africa/Lagos |
 | Nairobi | Kenya | Africa/Nairobi |
 | Cape Town | South Africa | Africa/Johannesburg |
 | Casablanca | Morocco | Africa/Casablanca |
 
-#### Asia Pacific
-| City | Country | Timezone |
-|------|---------|----------|
+#### آسیا و اقیانوسیه
+| شهر | کشور | منطقه زمانی |
+|-----|------|------------|
 | Tokyo | Japan | Asia/Tokyo |
 | Seoul | South Korea | Asia/Seoul |
 | Beijing | China | Asia/Shanghai |
@@ -124,37 +59,78 @@ IVA TIME includes **35 cities** by default and lets users add more time zones:
 | Perth | Australia | Australia/Perth |
 | Auckland | New Zealand | Pacific/Auckland |
 
+### افزودن شهر سفارشی
+
+دکمه **«＋ مدیریت شهرها»** → جستجوی timezone → تیک زدن.  
+شهرهای انتخاب‌شده در `localStorage` ذخیره می‌شوند و تا حذف باقی می‌مانند.
+
+برای راهنمای کامل: [Adding-New-Cities](Adding-New-Cities)
+
+### نشانگر روز/شب
+
+هر کارت وضعیت خورشید را نمایش می‌دهد:
+
+- **Day / روز** — ساعت محلی بین ۶:۰۰ تا ۱۸:۵۹
+- **Night / شب** — ساعت محلی بین ۱۹:۰۰ تا ۵:۵۹
+
+رنگ accent کارت بر اساس موقعیت در گرید تغییر می‌کند (طلایی، آبی‌فیروزه‌ای، بنفش، سبز).
+
+### جستجو
+
+جستجو روی موارد زیر اعمال می‌شود:
+- نام شهر (انگلیسی)
+- نام کشور (انگلیسی)
+- نام فارسی شهر (از `FA_NAMES`)
+- نام فارسی کشور (از `FA_NAMES`)
+
+### مرتب‌سازی
+
+| حالت | توضیح |
+|------|-------|
+| Default | ترتیب اصلی لیست `P` |
+| Favorites | علاقه‌مندها اول، بقیه الفبایی |
+| Name | الفبایی بر اساس زبان جاری |
+| UTC offset | از غرب به شرق |
+
 ---
 
-## 🌗 Day/Night Indicator
+## 🇬🇧 English
 
-Each clock card shows a "Day" or "Night" indicator based on the current time:
-- **Day**: 06:00 - 18:59 (local time)
-- **Night**: 19:00 - 05:59 (local time)
+### Card Anatomy
 
----
+Each clock card shows:
 
-## 🔍 Search & Filter
+```
+┌─────────────────────────┐
+│ 🇮🇷   Night             │  ← flag + day/night indicator
+│                         │
+│  23:15:42               │  ← current local time (HH:MM:SS)
+│                         │
+│  Tehran                 │  ← city name (translated)
+│  Iran                   │  ← country name (translated)
+├─────────────────────────┤
+│  4 Shahrivar 1405       │  ← local date
+│                    ★  × │  ← favorite + remove buttons
+└─────────────────────────┘
+```
 
-### Search Syntax
-Simply type the city or country name. Search is case-insensitive and matches partial strings.
+### Favorites
 
-Examples:
-- "new" → New York
-- "tok" → Tokyo
-- "uni" → United States cities
+Click **★** to add a city to favorites.  
+Use **Sort → Favorites** to pin them to the top.  
+Favorites persist in `localStorage`.
 
-### Region Filters
-Available filters:
-- **All** - Show all cities
-- **Americas** - North & South America
-- **Europe** - European countries
-- **Middle East** - Middle Eastern countries
-- **Africa** - African countries
-- **Asia Pacific** - Asia & Oceania
+### Remove & Restore
 
----
+Click **×** on a card to hide that city.  
+Use **Manage cities** dialog to restore hidden cities or add new ones.
 
-## ➕ Adding More Cities
+### Share Settings
 
-See [Adding New Cities](Adding-New-Cities) for detailed instructions.
+"Share settings" button builds a URL like:
+
+```
+https://kourosh242.github.io/iva-time/?cities=Asia%2FTehran%2CAmerica%2FNew_York&lang=fa&theme=dark&cal=j
+```
+
+Anyone opening this link sees the same city selection, language, theme, and calendar.

@@ -1,200 +1,247 @@
 # API Reference · مرجع API
 
-## 🇮🇷 فارسی
-
-> **توجه**: آیوا تایم یک برنامه سمت کلاینت است و API HTTP ندارد. این صفحه مرجع توابع JavaScript داخلی است.
-
-### توابع تقویم
-
-#### `g2j(gy, gm, gd)`
-تبدیل تاریخ میلادی به جلالی
-
-```javascript
-// Input: [year, month, day]
-const jalali = g2j(2024, 8, 25);
-// Output: [1403, 6, 4]
-```
-
-#### `j2g(jy, jm, jd)`
-تبدیل تاریخ جلالی به میلادی
-
-```javascript
-// Input: [year, month, day]
-const gregorian = j2g(1403, 6, 4);
-// Output: [2024, 8, 25]
-```
-
-#### `jalLeap(jy)`
-بررسی سال کبیسه جلالی
-
-```javascript
-jalLeap(1403); // Output: 0 (not leap)
-jalLeap(1404); // Output: 1 (leap year)
-```
-
-#### `jalMonthLen(jy, jm)`
-طول ماه جلالی
-
-```javascript
-jalMonthLen(1403, 12); // Output: 29 or 30 (depends on leap year)
-jalMonthLen(1403, 6);  // Output: 31
-```
+> **توجه**: آیوا تایم یک برنامه سمت کلاینت است و HTTP API ندارد.
+> این صفحه توابع JavaScript داخلی `app.js` را مستند می‌کند که از طریق `module.exports` در Node.js (برای تست) و به صورت global در مرورگر در دسترس هستند.
 
 ---
 
-## 🇬🇧 English
+## توابع تقویم جلالی · Jalali Calendar Functions
 
-> **Note**: IVA TIME is a client-side application and has no HTTP API. This page documents internal JavaScript functions.
+### `g2j(gy, gm, gd)` → `[jy, jm, jd]`
 
-### Calendar Functions
-
-#### `g2j(gy, gm, gd)`
-Convert Gregorian to Jalali date
+تبدیل تاریخ میلادی به جلالی. / Convert Gregorian to Jalali.
 
 ```javascript
-// Input: [year, month, day]
-const jalali = g2j(2024, 8, 25);
-// Output: [1403, 6, 4]
+g2j(2026, 8, 26);  // → [1405, 6, 4]  (شهریور)
+g2j(2024, 3, 20);  // → [1402, 12, 30] (اسفند)
 ```
 
-#### `j2g(jy, jm, jd)`
-Convert Jalali to Gregorian date
+### `j2g(jy, jm, jd)` → `[gy, gm, gd]`
+
+تبدیل تاریخ جلالی به میلادی. / Convert Jalali to Gregorian.
 
 ```javascript
-// Input: [year, month, day]
-const gregorian = j2g(1403, 6, 4);
-// Output: [2024, 8, 25]
+j2g(1405, 6, 4);    // → [2026, 8, 26]
+j2g(1404, 1, 1);    // → [2025, 3, 21]  (نوروز)
 ```
 
-#### `jalLeap(jy)`
-Check Jalali leap year
+### `jalLeap(jy)` → `0 | 1 | 2 | 3 | 4`
+
+بررسی سال کبیسه جلالی. / Check Jalali leap year.
+مقدار بازگشتی `0` یعنی سال کبیسه (اسفند ۳۰ روزه).
 
 ```javascript
-jalLeap(1403); // Output: 0 (not leap)
-jalLeap(1404); // Output: 1 (leap year)
+jalLeap(1403);  // → 0  (کبیسه — Esfand has 30 days)
+jalLeap(1404);  // → 4  (معمولی — Esfand has 29 days)
+jalLeap(1405);  // → 0  (کبیسه)
 ```
 
-#### `jalMonthLen(jy, jm)`
-Get Jalali month length
+### `jalMonthLen(jy, jm)` → `number`
+
+تعداد روزهای ماه جلالی. / Number of days in a Jalali month.
 
 ```javascript
-jalMonthLen(1403, 12); // Output: 29 or 30 (depends on leap year)
-jalMonthLen(1403, 6);  // Output: 31
+jalMonthLen(1405, 1);   // → 31  (ماه‌های ۱–۶)
+jalMonthLen(1405, 7);   // → 30  (ماه‌های ۷–۱۱)
+jalMonthLen(1405, 12);  // → 30  (اسفند — سال کبیسه)
+jalMonthLen(1404, 12);  // → 29  (اسفند — سال معمولی)
 ```
+
+### `jalaliOf(date)` → `[jy, jm, jd]`
+
+تبدیل شیء Date به تاریخ جلالی. / Convert a JS Date to Jalali.
+
+```javascript
+jalaliOf(new Date());  // → [1405, 6, 4] (امروز)
+```
+
+### توابع سطح پایین · Low-level Functions
+
+| تابع | توضیح |
+|------|-------|
+| `g2d(gy, gm, gd)` | Gregorian → Julian Day Number |
+| `d2g(jdn)` | Julian Day Number → `[gy, gm, gd]` |
+| `j2d(jy, jm, jd)` | Jalali → Julian Day Number |
+| `d2j(jdn)` | Julian Day Number → `[jy, jm, jd]` |
+| `jalCal(jy)` | اطلاعات سال جلالی: `{leap, gy, march}` |
 
 ---
 
-### NTP Functions
+## توابع NTP · NTP Functions
 
-#### `doSync(mode)`
-شروع همگام‌سازی NTP
+### `doSync(mode)` → `Promise<void>`
+
+شروع همگام‌سازی با سرور زمان. / Start NTP synchronization.
 
 ```javascript
-// Auto mode (try network, fallback to local)
-await doSync('auto');
+// حالت خودکار — Cloudflare → WorldTimeAPI → local fallback
+doSync('auto');
 
-// Local only mode
-await doSync('local');
+// فقط ساعت محلی
+doSync('local');
 ```
 
-#### `TIME_SOURCES`
-آرایه منابع زمانی
+**جریان sync:**
+1. درخواست به `https://www.cloudflare.com/cdn-cgi/trace`
+2. در صورت شکست: درخواست به `https://worldtimeapi.org/api/timezone/Etc/UTC`
+3. محاسبه `offsetMs = serverMs - (Date.now() - rtt/2)`
+4. بروزرسانی UI و رندر ساعت‌ها
+
+### `TIME_SOURCES` (array)
+
+آرایه منابع زمانی. / Time sources array.
 
 ```javascript
 TIME_SOURCES.forEach(source => {
-  console.log(source.id);   // 'cloudflare', 'worldtime'
-  console.log(source.name); // 'Cloudflare edge', 'WorldTimeAPI'
+  console.log(source.id);    // 'cloudflare' | 'worldtime'
+  console.log(source.name);  // 'Cloudflare edge' | 'WorldTimeAPI'
+  // source.get() → Promise<{serverMs, rtt}|null>
 });
 ```
 
 ---
 
-### Render Functions
+## توابع رندر · Render Functions
 
-#### `render()`
-رندر ساعت‌های جهان
+### `render()`
+
+رندر کارت‌های ساعت، marquee ticker و بخش امروز. / Render clock cards and today panel.
+هر ثانیه از `setInterval` فراخوانی می‌شود.
 
 ```javascript
-render();
+render(); // رندر فوری
 ```
 
-#### `renderCal()`
-رندر تقویم
+### `renderCal()`
+
+رندر گرید تقویم (ماه جاری). / Render calendar grid for current month.
 
 ```javascript
 renderCal();
 ```
 
-#### `renderToday()`
-رندر بخش "امروز"
+### `renderToday()`
+
+بروزرسانی پنل «امروز» در کنار تقویم. / Update the today panel beside the calendar.
 
 ```javascript
 renderToday();
 ```
 
-#### `translate()`
-اعمال ترجمه‌ها
+### `translate()`
+
+اعمال ترجمه‌های زبان جاری به تمام عناصر `data-i`. / Apply translations for the current language.
 
 ```javascript
-translate();
+lang = 'fa';
+translate(); // همه متن‌ها به فارسی تغییر می‌کند
+```
+
+### `setCalSys(sys)`
+
+تغییر سیستم تقویم و رندر مجدد. / Switch calendar system and re-render.
+
+```javascript
+setCalSys('j');  // شمسی (جلالی)
+setCalSys('g');  // میلادی (Gregorian)
 ```
 
 ---
 
-### State Functions
+## State و تنظیمات · State & Config
 
-#### `state()`
-دریافت وضعیت فعلی
+### `state()` → object
+
+دریافت snapshot کامل وضعیت داخلی. / Get full internal state snapshot.
 
 ```javascript
 const s = state();
-// s.lang: 'en' | 'fa'
-// s.region: 'All' | 'Americas' | ...
-// s.calSys: 'j' | 'g'
-// s.offsetMs: number
-// s.syncState: {status, source, rtt, at}
+// s.lang        → 'en' | 'fa'
+// s.region      → 'All' | 'Americas' | 'Europe' | ...
+// s.limit       → number (تعداد کارت‌های نمایش)
+// s.q           → string (query جستجو)
+// s.calSys      → 'j' | 'g'
+// s.calY        → number (سال نمایش‌داده‌شده تقویم)
+// s.calM        → number (ماه نمایش‌داده‌شده تقویم)
+// s.offsetMs    → number (انحراف NTP به ms)
+// s.syncState   → {status:'ok'|'local'|'syncing', source, rtt, at}
+// s.syncing     → boolean
 ```
 
-#### `setLang(lang)`
-تنظیم زبان
+### `setLang(l)`
+
+تنظیم زبان (بدون بروزرسانی UI). / Set language without UI update.
 
 ```javascript
-setLang('fa'); // Switch to Persian
-setLang('en'); // Switch to English
+setLang('fa');
+setLang('en');
 ```
 
-#### `setOffset(ms)`
-تنظیم offset NTP دستی
+### `setOffset(ms)`
+
+تنظیم دستی offset NTP. / Manually set NTP offset.
 
 ```javascript
-setOffset(0);        // Reset to local clock
-setOffset(3600000);   // Add 1 hour offset
+setOffset(0);       // بازگشت به ساعت محلی
+setOffset(2000);    // جلوتر ۲ ثانیه
+setOffset(-1500);   // عقب‌تر ۱.۵ ثانیه
 ```
 
 ---
 
-### Constants
+## ثابت‌ها · Constants
 
-#### `J_MONTHS`
-نام‌های ماه‌های جلالی
+### `P` (array of objects)
+
+آرایه ۳۵ شهر اصلی. / Array of 35 built-in cities.
 
 ```javascript
-J_MONTHS.fa; // ['فروردین', 'اردیبهشت', ...]
-J_MONTHS.en; // ['Farvardin', 'Ordibehesht', ...]
+P[0]; // {city:'New York', country:'United States', code:'US', zone:'America/New_York', region:'Americas'}
+P[15]; // {city:'Tehran', country:'Iran', code:'IR', zone:'Asia/Tehran', region:'Middle East'}
 ```
 
-#### `G_MONTHS`
-نام‌های ماه‌های میلادی
+### `J_MONTHS`
+
+نام ماه‌های جلالی. / Jalali month names.
 
 ```javascript
-G_MONTHS.fa; // ['ژانویه', 'فوریه', ...]
-G_MONTHS.en; // ['January', 'February', ...]
+J_MONTHS.fa;  // ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند']
+J_MONTHS.en;  // ['Farvardin','Ordibehesht','Khordad','Tir','Mordad','Shahrivar','Mehr','Aban','Azar','Dey','Bahman','Esfand']
 ```
 
-#### `DOW_FA`, `DOW_EN`
-نام‌های روزهای هفته
+### `G_MONTHS`
+
+نام ماه‌های میلادی. / Gregorian month names (both languages).
 
 ```javascript
-DOW_FA; // ['یکشنبه', 'دوشنبه', ...]
-DOW_EN; // ['Sunday', 'Monday', ...]
+G_MONTHS.fa;  // ['ژانویه','فوریه','مارس',...]
+G_MONTHS.en;  // ['January','February','March',...]
+```
+
+### `DOW_FA` / `DOW_EN`
+
+نام روزهای هفته (indexed by `Date.getDay()`). / Day-of-week names.
+
+```javascript
+DOW_FA;    // ['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه','شنبه']
+DOW_EN;    // ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+```
+
+### `FA_NAMES`
+
+نگاشت نام‌های انگلیسی شهرها/کشورها به فارسی. / English→Persian name mapping.
+
+```javascript
+FA_NAMES['Tehran'];   // 'تهران'
+FA_NAMES['Iran'];     // 'ایران'
+FA_NAMES['Tokyo'];    // 'توکیو'
+```
+
+### `toFa(s)` → string
+
+تبدیل اعداد لاتین به فارسی. / Convert Western numerals to Persian.
+
+```javascript
+toFa('2026');   // '۲۰۲۶'
+toFa('12:30');  // '۱۲:۳۰'
 ```

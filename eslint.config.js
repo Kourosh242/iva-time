@@ -1,4 +1,4 @@
-const browserGlobals={window:'readonly',document:'readonly',navigator:'readonly',location:'readonly',localStorage:'readonly',Intl:'readonly',fetch:'readonly',caches:'readonly',self:'readonly',URL:'readonly',URLSearchParams:'readonly',AbortController:'readonly',performance:'readonly',setTimeout:'readonly',clearTimeout:'readonly',setInterval:'readonly',addEventListener:'readonly',prompt:'readonly',module:'readonly'};
+const browserGlobals={window:'readonly',document:'readonly',navigator:'readonly',location:'readonly',localStorage:'readonly',Intl:'readonly',fetch:'readonly',caches:'readonly',self:'readonly',URL:'readonly',URLSearchParams:'readonly',AbortController:'readonly',performance:'readonly',setTimeout:'readonly',clearTimeout:'readonly',setInterval:'readonly',addEventListener:'readonly',prompt:'readonly',module:'readonly',history:'readonly'};
 const sharedAppGlobals={$:'readonly',P:'readonly',FA_NAMES:'readonly',lang:'writable',now:'readonly',setCalSys:'readonly',toFa:'readonly',num:'readonly',calSys:'readonly',render:'readonly',translate:'readonly'};
 
 export default[

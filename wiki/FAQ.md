@@ -4,31 +4,45 @@
 
 ### عمومی
 
-**س: آیوا تایم چیست؟**
-ج: آیوا تایم یک ساعت جهانی دو‌زبانه است که زمان شهرهای مختلف جهان را نمایش می‌دهد.
+**آیوا تایم چیست؟**
+یک ساعت جهانی دو‌زبانه (فارسی/انگلیسی) زنده است که با HTML، CSS و JavaScript خالص نوشته شده — بدون هیچ وابستگی خارجی.
 
-**س: آیا نیاز به نصب دارم؟**
-ج: خیر! فقط کافی است فایل index.html را باز کنید.
+**آیا نصب لازم است؟**
+خیر. فایل `index.html` را مستقیم در مرورگر باز کنید. برای PWA و offline باید از یک سرور HTTP استفاده کنید.
 
-**س: آیا نیاز به اینترنت دارم؟**
-ج: برای نمایش ساعت‌ها خیر، ولی برای همگام‌سازی NTP بله.
+**آیا به اینترنت نیاز دارم؟**
+برای نمایش ساعت‌ها: خیر.
+برای همگام‌سازی NTP: بله (اتصال به Cloudflare یا WorldTimeAPI).
+بعد از اولین بارگذاری و cache شدن توسط Service Worker، بدون اینترنت هم کار می‌کند.
 
-**س: آیا رایگان است؟**
-ج: بله، تحت مجوز MIT منتشر شده.
+**رایگان است؟**
+بله، تحت مجوز MIT منتشر شده — استفاده، تغییر و توزیع آزاد.
+
+---
 
 ### فنی
 
-**س: چرا همگام‌سازی NTP مهم است؟**
-ج: ساعت دستگاه شما ممکن است دقیق نباشد. NTP انحراف را محاسبه و اصلاح می‌کند.
+**NTP چیست و چرا مهم است؟**
+NTP (Network Time Protocol) پروتکل استاندارد همگام‌سازی ساعت است. ساعت دستگاه شما ممکن است چند ثانیه یا حتی دقیقه انحراف داشته باشد. آیوا تایم این انحراف را اندازه می‌گیرد و روی همه ساعت‌ها اعمال می‌کند.
 
-**س: چرا اعداد فارسی نمایش داده می‌شوند؟**
-ج: این یک ویژگی است! در حالت فارسی، اعداد به ۰۱۲۳۴۵۶۷۸۹ تبدیل می‌شوند.
+**چرا مرورگر مستقیم از NTP استفاده نمی‌کند؟**
+مرورگرها به سوکت‌های UDP خام (پورت ۱۲۳ — پروتکل اصلی NTP) دسترسی ندارند. آیوا تایم به جای آن از HTTP endpoints که با NTP disciplined هستند استفاده می‌کند (Cloudflare edge + WorldTimeAPI).
 
-**س: چرا تقویم جلالی مهم است؟**
-ج: ایران و افغانستان از تقویم جلالی استفاده می‌کنند. این تقویم با فصول مطابقت دارد.
+**اعداد فارسی چرا نمایش داده می‌شوند؟**
+در حالت زبان فارسی، اعداد با تابع `toFa()` تبدیل می‌شوند. این استاندارد نمایش اعداد در فارسی است: ۰۱۲۳۴۵۶۷۸۹
 
-**س: چگونه شهر جدید اضافه کنم؟**
-ج: فایل app.js را ویرایش کنید و شهر را به لیست P اضافه کنید. راهنمای کامل در [Adding New Cities](Adding-New-Cities).
+**تقویم شمسی از کجا می‌آید؟**
+الگوریتم Borkowski (1996) که در `app.js` پیاده‌سازی شده — بدون هیچ API خارجی. دقیق برای سال‌های جلالی ۶۱- تا ۳۱۷۷.
+
+**چه timezone هایی پشتیبانی می‌شود؟**
+همه timezone های استاندارد IANA (بیش از ۵۰۰ گزینه) از طریق City Manager dialog قابل افزودن هستند. ۳۵ شهر به صورت پیش‌فرض موجودند.
+
+**آیا DST (ساعت تابستانی) پشتیبانی می‌شود؟**
+بله، به صورت خودکار. از `Intl.DateTimeFormat` مرورگر استفاده می‌شود که همیشه به‌روز است.
+
+**چگونه شهر اضافه کنم؟**
+دکمه «＋ مدیریت شهرها» → جستجوی timezone → تیک زدن.
+برای راهنمای کامل: [Adding-New-Cities](Adding-New-Cities)
 
 ---
 
@@ -36,50 +50,50 @@
 
 ### General
 
-**Q: What is IVA TIME?**
-A: IVA TIME is a bilingual world clock that displays time for cities around the world.
+**What is IVA TIME?**
+A live, bilingual (Persian/English) world clock built with pure HTML, CSS, and JavaScript — no frameworks, no external dependencies.
 
-**Q: Do I need to install anything?**
-A: No! Just open the index.html file in your browser.
+**Installation?**
+None needed. Open `index.html` in your browser. Use an HTTP server for PWA/offline features.
 
-**Q: Do I need internet?**
-A: For clock display, no. For NTP sync, yes.
+**Internet required?**
+For clocks: No.
+For NTP sync: Yes (Cloudflare or WorldTimeAPI).
+After the first load, the Service Worker caches everything for offline use.
 
-**Q: Is it free?**
-A: Yes, released under MIT License.
+**Is it free?**
+Yes, MIT License — free to use, modify, and distribute.
+
+---
 
 ### Technical
 
-**Q: Why is NTP sync important?**
-A: Your device clock may not be accurate. NTP calculates and corrects the offset.
+**Why does the city manager show 500+ timezones?**
+It uses `Intl.supportedValuesOf('timeZone')` which returns all IANA timezones the browser supports — typically 500+. If the browser doesn't support this API, it falls back to the built-in 35 cities.
 
-**Q: Why are Persian numerals displayed?**
-A: This is a feature! In Persian mode, numbers are converted to ۰۱۲۳۴۵۶۷۸۹.
+**How accurate is the time?**
+With NTP sync enabled:
+- Cloudflare edge: typically ±50ms
+- WorldTimeAPI: typically ±200ms
+- Local fallback: depends on your device clock
 
-**Q: Why is the Jalali calendar important?**
-A: Iran and Afghanistan use the Jalali calendar. This calendar aligns with seasons.
+**How is the offset calculated?**
 
-**Q: How do I add a new city?**
-A: Edit app.js and add the city to the P list. Complete guide at [Adding New Cities](Adding-New-Cities).
+```javascript
+// t0 = before request, t1 = after response
+const rtt = t1 - t0;
+// serverMs = timestamp from server
+const offsetMs = serverMs - (t0 + rtt / 2);
+```
 
----
+This accounts for half the round-trip time, similar to how NTP itself works.
 
-## 🔧 Troubleshooting
+**Why 4 CSS files?**
+Each CSS file has a clear responsibility:
+- `style.css` — design tokens, layout, base components, RTL
+- `features.css` — panels, dialogs, card actions (features.js styles)
+- `header-fixes.css` — header-specific layout refinements
+- `design-polish.css` — globe, marquee, visual details, dark/light tweaks
 
-| Problem | Solution |
-|---------|----------|
-| Time is wrong | Check device clock, try NTP sync |
-| Persian text broken | Ensure UTF-8 encoding |
-| Font not loading | Check network, clear cache |
-| Calendar shows wrong month | Refresh page |
-| Theme won't change | Try hard refresh (Ctrl+Shift+R) |
-
----
-
-## 💡 Tips & Tricks
-
-1. **Quick Language Switch**: Press the "فا/EN" button in header
-2. **Search**: Type partial city names for quick filtering
-3. **NTP Status**: Green dot means synced, yellow means local clock
-4. **Today Highlight**: Current date is highlighted in orange
-5. **Theme Toggle**: Click ☼ for light/dark mode
+**Can I use it without the wiki?**
+Yes. The wiki (`wiki/`) is completely optional. The main app is `index.html` + `app.js` + `features.js` + CSS files.

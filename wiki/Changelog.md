@@ -1,104 +1,70 @@
 # Changelog · تاریخچه تغییرات
 
-## 🇮🇷 فارسی
-
-### [نسخه ۲.۰] - ۱۴۰۵
-
-#### ویژگی‌های جدید
-- ✅ تقویم زنده شمسی و میلادی
-- ✅ همگام‌سازی NTP با منابع شبکه
-- ✅ نوار وضعیت NTP با نمایش RTT و offset
-- ✅ ۳۸ شهر در ۶ منطقه
-- ✅ فیلتر منطقه‌ای
-- ✅ جستجوی شهر و کشور
-- ✅ نشانگر روز/شب
-- ✅ اعداد فارسی
-
-#### بهبودها
-- 🎨 رابط کاربری بازطراحی‌شده
-- 📱 واکنش‌گرایی بهبودیافته
-- ⚡ عملکرد بهتر با رندر بهینه
-- 🔧 تم روشن/تیره
+فرمت بر اساس [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) است.
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-## 🇬🇧 English
+## [5.0.0] — ۱۴۰۵ / 2026
 
-All notable changes to this project will be documented in this file.
+### اضافه‌شده · Added
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+- **City Manager dialog** — افزودن هر timezone از پایگاه کامل IANA (بیش از ۵۰۰ گزینه)
+- **Custom cities persistence** — شهرهای سفارشی در `localStorage` ذخیره می‌شوند
+- **Favorites system** — علاقه‌مند کردن شهرها با ستاره `★/☆`
+- **Sort modes** — Default / Favorites / Name / UTC offset
+- **Time comparison** — محاسبه دقیق اختلاف ساعت دو شهر
+- **Meeting planner** — یافتن ساعت کاری مشترک در بازه ۴۸ ساعته
+- **Shareable settings URL** — پارامترهای `?cities=...&lang=...&theme=...&cal=...`
+- **Marquee ticker** — نوار اسکرول‌شونده ساعت‌های زنده
+- **design-polish.css** — جلوه‌های بصری تکمیلی و میکرو-انیمیشن‌ها
+- **header-fixes.css** — اصلاح چیدمان هدر
+- **Wiki SPA** — ویکی کامل با مارکداون رندرر سفارشی، بدون CDN
+- **PWA Service Worker** — کش offline با استراتژی network-first
+- **GitHub Actions workflows** — CI (lint+test) + Pages deploy + Lighthouse audit
+- **ESLint** — کیفیت کد با `eslint.config.js`
+- **Tests** — 6 unit test برای تقویم جلالی و یکپارچگی پروژه
 
-## [Version 2.0] - 1405 / 2025
+### تغییرات · Changed
 
-### Added
-- ✅ Live Jalali and Gregorian calendar
-- ✅ NTP synchronization with network sources
-- ✅ NTP status bar showing RTT and offset
-- ✅ 38 cities in 6 regions
-- ✅ Regional filters
-- ✅ City and country search
-- ✅ Day/night indicator
-- ✅ Persian numerals
-
-### Changed
-- 🎨 Redesigned user interface
-- 📱 Improved responsiveness
-- ⚡ Better performance with optimized rendering
-- 🔧 Light/dark theme
-
----
-
-## [Version 1.0] - Initial Release
-
-### Added
-- 🌐 Basic world clocks
-- 🌍 Bilingual support (Persian/English)
-- 📱 Responsive design
-- 🎨 Dark theme
-- 🇮🇷 Country flags
+- **CSS به ۴ فایل تقسیم شد** — `style.css`, `features.css`, `header-fixes.css`, `design-polish.css`
+- **تم روشن** — بازطراحی کامل رنگ‌های light mode
+- **NTP status bar** — نمایش RTT، offset، منبع و زمان آخرین sync
+- **Calendar** — نمایش تاریخ معادل در تقویم دیگر برای هر روز
+- **Globe animation** — بهبود جلوه‌های بصری
+- **Responsive** — بهبود چیدمان در صفحات کوچک‌تر
 
 ---
 
-## 📋 Versioning
+## [2.0.0] — ۱۴۰۳ / 2024
 
-We use [Semantic Versioning](https://semver.org/):
+### اضافه‌شده · Added
 
-```
-MAJOR.MINOR.PATCH
-2.0.0
-│ │ └─ Patch: Bug fixes
-│ └─── Minor: New features (backwards compatible)
-└───── Major: Breaking changes
-```
+- تقویم زنده شمسی و میلادی
+- همگام‌سازی NTP از Cloudflare + WorldTimeAPI
+- نوار وضعیت NTP با نمایش RTT و offset
+- ۳۵ شهر در ۶ منطقه جهانی
+- فیلتر منطقه‌ای
+- جستجوی شهر و کشور
+- نشانگر روز/شب
+- اعداد فارسی با `toFa()`
+- فونت Vazirmatn (self-hosted)
+- تم روشن/تیره
 
-### Version History
+### تغییرات · Changed
 
-| Version | Date | Status |
-|---------|------|--------|
-| 2.0 | 2025 | Current |
-| 1.0 | 2024 | Deprecated |
-
----
-
-## 🔄 Release Process
-
-1. Create release branch: `release/v2.x.x`
-2. Test all features
-3. Update CHANGELOG.md
-4. Create GitHub release
-5. Merge to main
-6. Deploy to GitHub Pages
+- بازطراحی کامل رابط کاربری
+- بهبود واکنش‌گرایی موبایل
+- بهینه‌سازی رندر
 
 ---
 
-## 🐛 Reporting Issues
+## [1.0.0] — اولین انتشار / Initial Release
 
-Found a bug? Please report it using our [Bug Report Template](../.github/ISSUE_TEMPLATE/bug_report.yml).
+### اضافه‌شده · Added
 
-Please include:
-- Browser and version
-- Device type (mobile/desktop)
-- Steps to reproduce
-- Expected vs actual behavior
-- Screenshots if applicable
+- ساعت‌های جهانی پایه
+- پشتیبانی دو زبانه (فارسی/انگلیسی)
+- طراحی واکنش‌گرا
+- تم تاریک
+- پرچم کشورها (Unicode Emoji)

@@ -1,7 +1,7 @@
 <!---
-🇮🇷 IVA TIME · آیوا تایم
+IVA TIME · آیوا تایم
 Bilingual World Clock · ساعت جهانی دو زبانه
-Version 4.0 · ۱۴۰۵
+Version 5.0.0 · ۱۴۰۵
 -->
 
 <div align="center">
@@ -12,95 +12,75 @@ Version 4.0 · ۱۴۰۵
 
 **Every city. One moment.** · **هر شهر، یک لحظه**
 
-*A premium bilingual world clock with solar calendar and NTP time synchronization*
-
-*ساعت جهانی دو‌زبانه پریمیوم با تقویم شمسی و همگام‌سازی زمان NTP*
+*ساعت جهانی دو‌زبانه با تقویم شمسی، همگام‌سازی NTP، مدیریت شهرها و PWA آفلاین*  
+*Bilingual world clock · Jalali/Gregorian calendar · NTP sync · city manager · offline PWA*
 
 ---
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-ff5a36?style=for-the-badge)](LICENSE)
-[![HTML5](https://img.shields.io/badge/HTML5-Ready-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Version](https://img.shields.io/badge/Version-5.0.0-ff5a36?style=for-the-badge)](CHANGELOG.md)
+[![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-No_Build_Step-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![RTL Ready](https://img.shields.io/badge/RTL-Ready-24a148?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
 [![NTP Synced](https://img.shields.io/badge/NTP-Synced-0f9d58?style=for-the-badge)](https://en.wikipedia.org/wiki/Network_Time_Protocol)
-[![Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-232323?style=for-the-badge&logo=github)](https://pages.github.com/)
+[![PWA](https://img.shields.io/badge/PWA-Offline%20Ready-5A0FC8?style=for-the-badge&logo=pwa)](https://web.dev/progressive-web-apps/)
+[![CI](https://img.shields.io/badge/CI-Lint%20%2B%20Tests-232323?style=for-the-badge&logo=github-actions)](https://github.com/Kourosh242/iva-time/actions)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-Live-232323?style=for-the-badge&logo=github)](https://kourosh242.github.io/iva-time/)
 
 </div>
 
 ---
 
-## 🇮🇷 فارسی · Persian
+## 🇮🇷 فارسی
 
 ### درباره آیوا تایم
 
-**آیوا تایم** یک ساعت جهانی زنده، سریع و زیباست که با تمرکز بر کاربران فارسی‌زبان و بین‌المللی طراحی شده است. این پروژه نیازی به API Key، سرور یا پایگاه داده ندارد — فقط HTML، CSS و JavaScript خالص.
+**آیوا تایم v5** یک ساعت جهانی زنده، سریع و زیباست که با HTML، CSS و JavaScript خالص نوشته شده.  
+هیچ فریمورک، API Key، بک‌اند یا پایگاه داده‌ای نیاز نیست — فقط فایل‌های استاتیک.
 
 ### ویژگی‌های کلیدی
 
 | ویژگی | توضیح |
 |-------|-------|
-| 🌐 **۳۵ شهر جهان** | با منطقه زمانی IANA معتبر |
-| 📅 **تقویم شمسی و میلادی** | تبدیل دقیق الگوریتم Borkowski |
-| ⏱️ **همگام‌سازی NTP** | محاسبه انحراف ساعت با دقت میلی‌ثانیه |
-| 🌗 **تشخیص روز و شب** | نمایش وضعیت خورشید در هر شهر |
-| 🔍 **جستجو و فیلتر** | جستجوی شهر و کشور + فیلتر منطقه‌ای |
-| 🌍 **دو زبانه** | فارسی (RTL) و انگلیسی (LTR) |
-| 🎨 **حالت روشن/تیره** | تغییر آسان تم |
-| 📱 **واکنش‌گرا** | سازگار با موبایل و دسکتاپ |
-| 🇮🇷 **پرچم کشورها** | نمایش خودکار با Unicode |
-| 🔄 **DST خودکار** | به‌روزرسانی خودکار ساعت تابستانی |
-| ⭐ **شهرهای محبوب** | افزودن، حذف و مرتب‌سازی شهرهای دلخواه |
-| 🧭 **مقایسه ساعت** | محاسبه اختلاف دقیق ساعت دو شهر |
-| 🤝 **برنامه‌ریز جلسه** | یافتن ساعت کاری مشترک چند منطقه زمانی |
-| 🔗 **اشتراک تنظیمات** | لینک قابل اشتراک برای شهرها، زبان، تم و تقویم |
-| 📲 **PWA آفلاین** | نصب روی دستگاه و استفاده بدون اینترنت |
+| 🌐 **۳۵ شهر جهان** | با timezone معتبر IANA در ۶ منطقه |
+| 📅 **تقویم شمسی و میلادی** | الگوریتم Borkowski (1996) — دقیق برای سال‌های ۶۱- تا ۳۱۷۷ |
+| ⏱️ **همگام‌سازی NTP** | Cloudflare edge → WorldTimeAPI، دقت میلی‌ثانیه |
+| 🏙️ **مدیریت شهرها** | هر timezone از IANA (۵۰۰+) از طریق دیالوگ، بدون کد |
+| ⭐ **علاقه‌مندی‌ها** | افزودن، حذف و مرتب‌سازی شهرهای دلخواه |
+| 🧭 **مقایسه ساعت** | محاسبه دقیق اختلاف ساعت دو شهر |
+| 🤝 **برنامه‌ریز جلسه** | یافتن ساعت کاری مشترک در ۴۸ ساعت آینده |
+| 🔗 **اشتراک تنظیمات** | لینک قابل اشتراک با شهرها، زبان، تم و تقویم |
+| 🌗 **روز/شب** | وضعیت خورشید برای هر شهر |
+| 🌍 **دو زبانه** | فارسی (RTL) + انگلیسی (LTR) با تبدیل اعداد |
+| 🎨 **تم روشن/تیره** | ذخیره خودکار |
+| 📲 **PWA آفلاین** | Service Worker، نصب روی دستگاه |
 
-### NTP چیست؟
+### نصب و راه‌اندازی
 
-**NTP (Network Time Protocol)** پروتکل استاندارد اینترنت برای همگام‌سازی ساعت دستگاه‌ها با سرورهای زمان دقیق (که خود با GPS و ساعت اتمی هماهنگ هستند) است.
-
-مرورگرها به سوکت‌های UDP خام (پورت ۱۲۳) دسترسی ندارند، بنابراین این سایت:
-1. زمان را از منابع **NTP-disciplined** می‌خواند (لبه Cloudflare و WorldTimeAPI)
-2. **انحراف (offset)** ساعت محلی شما را با دقت میلی‌ثانیه محاسبه می‌کند
-3. این انحراف را روی همه ساعت‌ها اعمال می‌کند
-
-وضعیت زنده (منبع، RTT، انحراف) در نوار پایین بخش تقویم نمایش داده می‌شود و هر **۵ دقیقه** خودکار تکرار می‌شود.
-
-### الگوریتم تقویم جلالی
-
-پیاده‌سازی الگوریتم **Borkowski (1996)** که:
-- برای سال‌های جلالی **-61 تا 3177** دقیق است
-- با تقویم `Intl` مروگر در بازه **1800-2256 میلادی** مطابقت دارد
-- سال‌های کبیسه جلالی (اسفند ۳۰ روزه) را به درستی محاسبه می‌کند
-
-### نصب و اجرا
-
-**روش ۱: اجرای مستقیم**
+**اجرای مستقیم:**
 ```bash
 # فایل index.html را در مرورگر باز کنید
 ```
 
-**روش ۲: سرور محلی**
+**سرور محلی (توصیه‌شده برای PWA):**
 ```bash
-# Python
-python -m http.server 8000
-
-# Node.js
-npx serve .
-
-# PHP
-php -S localhost:8000
+python -m http.server 8000   # Python
+npx serve .                  # Node.js
+php -S localhost:8000        # PHP
 ```
 
-### استقرار
+### استقرار روی GitHub Pages
 
-#### GitHub Pages
-1. تنظیمات مخزن → **Pages** → **Source** → **GitHub Actions**
+1. Settings → **Pages** → Source → **GitHub Actions**
 2. Push به branch `main`
-3. گردش‌کار (workflow) به صورت خودکار سایت را منتشر می‌کند
+3. گردش‌کار به صورت خودکار سایت را منتشر می‌کند
 
-#### cPanel
-تمام فایل‌های مخزن (به جز `.github/`) را در `public_html` آپلود کنید.
+### اجرای تست‌ها
+
+```bash
+npm install
+npm test        # 6 unit test (تقویم + یکپارچگی)
+npm run lint    # ESLint
+```
 
 ---
 
@@ -108,162 +88,201 @@ php -S localhost:8000
 
 ### About IVA TIME
 
-**IVA TIME** is a premium, live world clock designed for Persian-speaking users and international audiences alike. This project requires no API keys, server, or database — just pure HTML, CSS, and JavaScript.
+**IVA TIME v5** is a premium live world clock built with pure HTML, CSS, and JavaScript.  
+No framework, no API key, no server, no database — just static files.
 
 ### Key Features
 
 | Feature | Description |
 |---------|-------------|
-| 🌐 **35 World Cities** | Validated against official IANA timezones |
-| 📅 **Jalali & Gregorian Calendar** | Borkowski algorithm for precise conversion |
-| ⏱️ **NTP Time Sync** | Millisecond-accurate offset measurement |
-| 🌗 **Day/Night Indicator** | Sun status for each city |
-| 🔍 **Search & Filter** | City/country search + regional filters |
-| 🌍 **Bilingual** | Persian (RTL) and English (LTR) |
-| 🎨 **Light/Dark Theme** | Easy theme switching |
-| 📱 **Responsive** | Works on mobile and desktop |
-| 🇮🇷 **Country Flags** | Auto-generated with Unicode |
-| 🔄 **Auto DST** | Automatic daylight-saving updates |
-| ⭐ **Favorite Cities** | Add, remove and sort preferred time zones |
-| 🧭 **Time Comparison** | Calculate the exact difference between cities |
-| 🤝 **Meeting Planner** | Find overlapping working hours across time zones |
-| 🔗 **Shareable Settings** | Share cities, language, theme and calendar in one link |
-| 📲 **Offline PWA** | Install on a device and keep using it offline |
+| 🌐 **35 World Cities** | Validated IANA timezones across 6 regions |
+| 📅 **Jalali & Gregorian** | Borkowski (1996) algorithm — exact for years -61..3177 |
+| ⏱️ **NTP Sync** | Cloudflare edge → WorldTimeAPI, millisecond accuracy |
+| 🏙️ **City Manager** | Any IANA timezone (500+) via dialog, no code |
+| ⭐ **Favorites** | Add, remove, and sort preferred time zones |
+| 🧭 **Time Comparison** | Exact hour difference between any two cities |
+| 🤝 **Meeting Planner** | Find overlapping 9–18 working hours in the next 48h |
+| 🔗 **Shareable URL** | Share cities, language, theme, and calendar in one link |
+| 🌗 **Day/Night** | Sun status indicator for each city |
+| 🌍 **Bilingual** | Persian (RTL) + English (LTR) with numeral conversion |
+| 🎨 **Light/Dark** | Auto-persisted theme |
+| 📲 **Offline PWA** | Service Worker, installable on device |
 
-### What is NTP?
+### Installation
 
-**NTP (Network Time Protocol)** is the Internet's standard protocol for synchronizing clocks against precision time servers (disciplined by GPS and atomic clocks).
-
-Since browsers cannot open raw UDP sockets (port 123), this site:
-1. Reads time from **NTP-disciplined** sources (Cloudflare edge, WorldTimeAPI)
-2. Calculates your local clock's **offset** with millisecond precision
-3. Applies that offset to every clock on the page
-
-Live status (source, RTT, offset) displays below the calendar section and re-syncs automatically every **5 minutes**.
-
-### Jalali Calendar Algorithm
-
-Implementation of the **Borkowski (1996)** algorithm which:
-- Is accurate for Jalali years **-61 to 3177**
-- Matches the browser's `Intl` calendar for **1800-2256 CE**
-- Correctly calculates Jalali leap years (Esfand 30 days)
-
-### Installation & Running
-
-**Method 1: Direct Open**
+**Direct open:**
 ```bash
 # Open index.html in your browser
 ```
 
-**Method 2: Local Server**
+**Local server (recommended for PWA):**
 ```bash
-# Python
-python -m http.server 8000
-
-# Node.js
-npx serve .
-
-# PHP
-php -S localhost:8000
+python -m http.server 8000   # Python
+npx serve .                  # Node.js
+php -S localhost:8000        # PHP
 ```
 
-### Deployment
+### Deploy to GitHub Pages
 
-#### GitHub Pages
-1. Repository Settings → **Pages** → **Source** → **GitHub Actions**
+1. Repository Settings → **Pages** → Source → **GitHub Actions**
 2. Push to `main` branch
-3. The workflow automatically publishes the site
+3. Workflow deploys automatically
 
-#### cPanel
-Upload all repository files (except `.github/`) to `public_html`.
+### Run Tests
+
+```bash
+npm install
+npm test        # 6 unit tests (calendar + project integrity)
+npm run lint    # ESLint check
+```
 
 ---
 
 ## 📁 Project Structure · ساختار پروژه
 
-```text
+```
 iva-time/
-├── index.html              # Website structure
-├── style.css               # Responsive visual system
-├── app.js                  # Core logic (clocks, calendar, NTP, i18n)
+├── index.html                        # App shell — semantic HTML5
+├── app.js                            # Core: Jalali engine, NTP, clocks, i18n
+├── features.js                       # Extended: city manager, favorites, planner, PWA
+├── style.css                         # Design system, grid, themes, RTL
+├── features.css                      # Panels, dialogs, card actions
+├── header-fixes.css                  # Header layout refinements
+├── design-polish.css                 # Globe, marquee, micro-animations
+├── calendar-core.mjs                 # Standalone Jalali module (ESM, for tests)
+├── sw.js                             # Service Worker — network-first offline strategy
+├── manifest.webmanifest              # PWA manifest
 ├── assets/
-│   ├── iva-logo.svg        # SVG logo with gradient
-│   ├── og.png              # Social sharing image
+│   ├── iva-logo.svg                  # SVG logo
+│   ├── favicon.svg                   # Favicon
+│   ├── og.png                        # OpenGraph image
+│   ├── og.svg                        # OpenGraph source
 │   └── fonts/
-│       └── Vazirmatn-Variable.woff2  # Self-hosted Persian font
+│       └── Vazirmatn-Variable.woff2  # Self-hosted Persian variable font
+├── wiki/
+│   ├── index.html                    # Wiki SPA shell
+│   ├── wiki.js                       # Markdown renderer, routing, search
+│   ├── wiki.css                      # Wiki styles
+│   ├── Home.md
+│   ├── Quick-Start.md
+│   ├── Installation.md
+│   ├── World-Clocks.md
+│   ├── Calendar-System.md
+│   ├── NTP-Synchronization.md
+│   ├── Bilingual-Support.md
+│   ├── Architecture.md
+│   ├── API-Reference.md
+│   ├── Adding-New-Cities.md
+│   ├── FAQ.md
+│   ├── Troubleshooting.md
+│   ├── Changelog.md
+│   └── _Sidebar.md
+├── tests/
+│   ├── calendar.test.mjs             # Jalali calendar unit tests
+│   └── project.test.mjs             # Project integrity tests
 ├── .github/
 │   ├── workflows/
-│   │   └── pages.yml       # GitHub Pages automation
+│   │   ├── pages.yml                 # GitHub Pages deploy
+│   │   ├── quality.yml               # Lint + test CI
+│   │   └── lighthouse.yml            # Lighthouse audit (on PRs)
 │   └── ISSUE_TEMPLATE/
-│       └── bug_report.yml  # Bug report template
-├── CONTRIBUTING.md         # Contribution guidelines
-├── SECURITY.md             # Security policy
-├── LICENSE                 # MIT License
-└── README.md               # This file
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── DEPLOYMENT.md
+├── SECURITY.md
+├── LICENSE
+└── README.md
 ```
 
 ---
 
 ## 🛠️ Technical Details · جزئیات فنی
 
-### Supported Timezones · منطقه‌های زمانی پشتیبانی‌شده
+### Architecture
 
-| Continent | Cities |
-|-----------|--------|
-| **Americas** | New York, Los Angeles, Toronto, Mexico City, São Paulo, Buenos Aires |
-| **Europe** | London, Paris, Berlin, Madrid, Rome, Amsterdam, Stockholm, Istanbul |
-| **Middle East** | Dubai, Tehran, Riyadh, Doha |
-| **Africa** | Cairo, Lagos, Nairobi, Cape Town, Casablanca |
-| **Asia Pacific** | Tokyo, Seoul, Beijing, Singapore, Bangkok, Jakarta, Mumbai, Karachi, Dhaka, Sydney, Perth, Auckland |
+```
+index.html
+  ├── app.js        — Jalali engine · NTP · clock render · i18n · P data
+  ├── features.js   — city manager · favorites · planner · share · PWA install
+  ├── style.css     — design tokens · layout · RTL · responsive
+  ├── features.css  — panels · dialogs · card buttons
+  └── sw.js         — Service Worker · cache-first offline
+```
 
-### Browser Compatibility · سازگاری مرورگر
+`features.js` extends the globals exposed by `app.js` (`P`, `render`, `translate`, `FA_NAMES`, etc.) via well-defined window hooks (`ivaPrepareList`, `ivaCardActions`, `ivaAfterTranslate`).
 
-| Feature | Chrome | Firefox | Safari | Edge |
-|---------|--------|---------|--------|------|
+### NTP Sync Flow
+
+```
+Browser → Cloudflare cdn-cgi/trace (ts= unix seconds)
+       ↓ fail
+       → WorldTimeAPI /api/timezone/Etc/UTC (datetime field)
+       ↓ fail
+       → local device clock (offsetMs = 0)
+
+offsetMs = serverMs − (Date.now() − rtt / 2)
+```
+
+Syncs automatically every 5 minutes. Manual sync via the "Sync now" button.
+
+### Jalali Calendar Algorithm
+
+Port of [jalaali-js](https://github.com/jalaali/jalaali-js) v2 (MIT).  
+Borkowski (1996) — exact for years **−61..3177**, matches `Intl` `fa-IR-u-ca-persian` for **1800–2256 CE**.
+
+### Supported Timezones
+
+35 cities pre-loaded. Any IANA timezone (500+) addable via the **City Manager** dialog.
+
+| Region | Cities |
+|--------|--------|
+| Americas | New York, Los Angeles, Toronto, Mexico City, São Paulo, Buenos Aires |
+| Europe | London, Paris, Berlin, Madrid, Rome, Amsterdam, Stockholm, Istanbul |
+| Middle East | Dubai, Tehran, Riyadh, Doha |
+| Africa | Cairo, Lagos, Nairobi, Cape Town, Casablanca |
+| Asia Pacific | Tokyo, Seoul, Beijing, Singapore, Bangkok, Jakarta, Mumbai, Karachi, Dhaka, Sydney, Perth, Auckland |
+
+### Browser Compatibility
+
+| Feature | Chrome 80+ | Firefox 75+ | Safari 13+ | Edge 80+ |
+|---------|-----------|------------|-----------|---------|
 | Intl.DateTimeFormat | ✅ | ✅ | ✅ | ✅ |
-| CSS Variables | ✅ | ✅ | ✅ | ✅ |
+| CSS Custom Properties | ✅ | ✅ | ✅ | ✅ |
 | CSS Grid | ✅ | ✅ | ✅ | ✅ |
-| Fetch API | ✅ | ✅ | ✅ | ✅ |
-| RTL Support | ✅ | ✅ | ✅ | ✅ |
+| Service Worker | ✅ | ✅ | ✅ | ✅ |
+| RTL | ✅ | ✅ | ✅ | ✅ |
 
 ---
 
 ## 📖 Wiki · مستندات
 
-برای مستندات کامل به [Wiki آنلاین پروژه](https://kourosh242.github.io/iva-time/wiki/) مراجعه کنید.
+مستندات کامل: [ویکی آنلاین](https://kourosh242.github.io/iva-time/wiki/)  
+Full documentation: [online Wiki](https://kourosh242.github.io/iva-time/wiki/)
 
-For complete documentation, visit the [online project Wiki](https://kourosh242.github.io/iva-time/wiki/).
+---
 
-### Quick Links · لینک‌های سریع
+## 🔗 Links · لینک‌ها
 
-- [🏠 Homepage](https://kourosh242.github.io/iva-time/)
-- [📝 Changelog](./CHANGELOG.md)
-- [🐛 Bug Report](./.github/ISSUE_TEMPLATE/bug_report.yml)
-- [💡 Feature Request](./.github/ISSUE_TEMPLATE/feature_request.yml)
-- [📄 License](./LICENSE)
+- [🏠 Live Demo](https://kourosh242.github.io/iva-time/)
+- [📖 Wiki](https://kourosh242.github.io/iva-time/wiki/)
+- [📝 Changelog](CHANGELOG.md)
+- [🗺️ Roadmap](ROADMAP.md)
+- [🤝 Contributing](CONTRIBUTING.md)
+- [🔒 Security](SECURITY.md)
+- [📄 License](LICENSE)
 
 ---
 
 ## 🤝 Contributing · مشارکت
 
-Read our [contribution guidelines](./CONTRIBUTING.md) before submitting pull requests.
-
-راهنمای مشارکت ما را قبل از ارسال Pull Request بخوانید.
+راهنمای مشارکت: [CONTRIBUTING.md](CONTRIBUTING.md)  
+Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
 ## 📜 License · مجوز
 
-Released under the [MIT License](./LICENSE). Made with ❤️ for the world.
-
-```
-MIT License
-
-Copyright (c) 2026 IVA TIME contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software...
-```
+[MIT License](LICENSE) · Made with ❤️ for the world
 
 ---
 
@@ -271,6 +290,6 @@ of this software...
 
 **🌍 Time connects us all. · زمان، همه‌ی ما را به هم متصل می‌کند.**
 
-*© 2026 IVA TIME · آیوا تایم*
+*© 2026 IVA TIME · آیوا تایم · v5.0.0*
 
 </div>

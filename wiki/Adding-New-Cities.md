@@ -1,164 +1,143 @@
 # Adding New Cities · افزودن شهرهای جدید
 
-## 🇮🇷 فارسی
+## روش ۱: City Manager (بدون کد) — توصیه‌شده
 
-### راهنمای گام به گام
+### مراحل
 
-#### ۱. پیدا کردن منطقه زمانی معتبر
+1. روی دکمه **«＋ مدیریت شهرها»** کلیک کنید
+2. در کادر جستجو نام شهر یا timezone را تایپ کنید (مثلاً `Kabul` یا `Asia/Kabul`)
+3. تیک timezone مورد نظر را بزنید
+4. دکمه **Done** را بزنید
 
-از پایگاه داده IANA استفاده کنید:
+شهر سفارشی فوراً ظاهر می‌شود و در `localStorage` ذخیره می‌شود.
 
-🔗 [IANA Time Zone Database](https://www.iana.org/time-zones)
+**محدودیت:** شهرهای اضافه‌شده از طریق City Manager نام فارسی ندارند و با برچسب «Custom» نمایش داده می‌شوند.
 
-#### ۲. پیدا کردن کد کشور
+---
 
-از استاندارد ISO 3166-1 alpha-2 استفاده کنید:
+## روش ۲: ویرایش مستقیم app.js
 
-🔗 [ISO 3166 Country Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+برای افزودن دائمی شهر با نام فارسی، باید `app.js` را ویرایش کنید.
 
-#### ۳. ویرایش فایل app.js
+### قدم ۱: پیدا کردن timezone معتبر IANA
 
-خطوط مربوط به `P` (Places) را پیدا کنید:
+از [time.is](https://time.is/) یا [IANA Timezone List](https://www.iana.org/time-zones) استفاده کنید.
+
+مثال‌های رایج:
+
+| شهر | Timezone |
+|-----|----------|
+| Kabul | Asia/Kabul |
+| Tashkent | Asia/Tashkent |
+| Baku | Asia/Baku |
+| Yerevan | Asia/Yerevan |
+| Tbilisi | Asia/Tbilisi |
+| Islamabad | Asia/Karachi |
+| Colombo | Asia/Colombo |
+| Kathmandu | Asia/Kathmandu |
+| Muscat | Asia/Muscat |
+| Kuwait | Asia/Kuwait |
+
+### قدم ۲: پیدا کردن کد کشور ISO 3166-1
+
+| کشور | کد |
+|------|-----|
+| ایران | IR |
+| افغانستان | AF |
+| ازبکستان | UZ |
+| آذربایجان | AZ |
+| ارمنستان | AM |
+| گرجستان | GE |
+| عمان | OM |
+| کویت | KW |
+
+### قدم ۳: افزودن به رشته `P` در app.js
+
+ساختار هر خط:
+
+```
+نام_شهر|نام_کشور|کد_کشور|timezone_IANA|منطقه
+```
+
+**مناطق معتبر:** `Americas` / `Europe` / `Middle East` / `Africa` / `Asia Pacific`
+
+مثال — افزودن کابل:
 
 ```javascript
 const P = `New York|United States|US|America/New_York|Americas
 Los Angeles|United States|US|America/Los_Angeles|Americas
 ...
-`.split('\n').map(x => {
-  const [city, country, code, zone, region] = x.split('|');
-  return {city, country, code, zone, region};
-});
-```
-
-#### ۴. افزودن شهر جدید
-
-یک خط جدید با فرمت زیر اضافه کنید:
-
-```
-نام_شهر|نام_کشور|کد_کشور|منطقه_زمانی_IANA|منطقه
-```
-
-مثال:
-```
-Paris|France|FR|Europe/Paris|Europe
-```
-
-#### ۵. تعیین منطقه
-
-| منطقه | توضیح |
-|-------|-------|
-| Americas | آمریکای شمالی و جنوبی |
-| Europe | اروپا |
-| Middle East | خاورمیانه |
-| Africa | آفریقا |
-| Asia Pacific | آسیا و اقیانوسیه |
-
----
-
-## 🇬🇧 English
-
-### Step-by-Step Guide
-
-#### 1. Find a Valid Timezone
-
-Use the IANA Time Zone Database:
-
-🔗 [IANA Time Zone Database](https://www.iana.org/time-zones)
-
-#### 2. Find the Country Code
-
-Use ISO 3166-1 alpha-2 standard:
-
-🔗 [ISO 3166 Country Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-
-#### 3. Edit app.js
-
-Find the `P` (Places) constant:
-
-```javascript
-const P = `New York|United States|US|America/New_York|Americas
-Los Angeles|United States|US|America/Los_Angeles|Americas
-...
-`.split('\n').map(x => {
-  const [city, country, code, zone, region] = x.split('|');
-  return {city, country, code, zone, region};
-});
-```
-
-#### 4. Add New City
-
-Add a new line with this format:
-
-```
-CityName|CountryName|COUNTRY_CODE|IANA_TIMEZONE|Region
-```
-
-Example:
-```
-Paris|France|FR|Europe/Paris|Europe
-```
-
-#### 5. Assign Region
-
-| Region | Description |
-|--------|-------------|
-| Americas | North & South America |
-| Europe | European countries |
-| Middle East | Middle Eastern countries |
-| Africa | African countries |
-| Asia Pacific | Asia & Oceania |
-
----
-
-## 📝 Example: Adding Mumbai
-
-### Step 1: Timezone
-Mumbai uses `Asia/Kolkata` (not `Asia/Mumbai`)
-
-### Step 2: Country Code
-India = `IN`
-
-### Step 3: Region
-Asia Pacific
-
-### Step 4: Add to P
-
-```javascript
-const P = `...
-Mumbai|India|IN|Asia/Kolkata|Asia Pacific
-...
+Kabul|Afghanistan|AF|Asia/Kabul|Middle East
 `.split('\n').map(...)
 ```
 
+### قدم ۴: افزودن نام فارسی
+
+در ثابت `FA_NAMES` در `app.js`:
+
+```javascript
+const FA_NAMES = {
+  // شهرهای موجود...
+  'Kabul': 'کابل',
+  'Afghanistan': 'افغانستان',
+};
+```
+
+### قدم ۵: تست
+
+```bash
+npm test    # 6 unit test باید همه pass شوند
+npm run lint
+```
+
 ---
 
-## ✅ Checklist for New Cities
+## چک‌لیست Pull Request
 
-Before submitting a pull request, verify:
-
-- [ ] Valid IANA timezone (check at [time.is](https://time.is/))
-- [ ] Correct ISO 3166-1 alpha-2 country code
-- [ ] Correct region assignment
-- [ ] Both Persian and English names are correct
-- [ ] Daylight saving time works correctly
-- [ ] Clock displays correctly with NTP sync
+- [ ] Timezone از IANA معتبر است (تست با `new Intl.DateTimeFormat('en', {timeZone: '...'}).format(new Date())`)
+- [ ] کد کشور ISO 3166-1 alpha-2 صحیح است
+- [ ] منطقه (`region`) صحیح است
+- [ ] نام فارسی در `FA_NAMES` اضافه شده
+- [ ] `npm test` همه pass می‌شوند
+- [ ] DST در صورت وجود درست نمایش داده می‌شود
 
 ---
 
-## 🌍 Popular Timezones Reference
+## مثال کامل: افزودن تاشکند
 
-| City | Timezone | DST? |
-|------|----------|------|
-| Dubai | Asia/Dubai | ❌ No |
-| Tehran | Asia/Tehran | ❌ No |
-| Mumbai | Asia/Kolkata | ❌ No |
-| Hong Kong | Asia/Hong_Kong | ❌ No |
-| Shanghai | Asia/Shanghai | ❌ No |
-| Bangkok | Asia/Bangkok | ❌ No |
-| Singapore | Asia/Singapore | ❌ No |
-| Sydney | Australia/Sydney | ✅ Yes |
-| Auckland | Pacific/Auckland | ✅ Yes |
-| London | Europe/London | ✅ Yes |
-| New York | America/New_York | ✅ Yes |
-| Los Angeles | America/Los_Angeles | ✅ Yes |
-| São Paulo | America/Sao_Paulo | ✅ Yes |
+### ۱. Timezone: `Asia/Tashkent`
+### ۲. کشور: Uzbekistan / UZ
+### ۳. منطقه: Asia Pacific
+### ۴. اضافه به `P`:
+
+```
+Tashkent|Uzbekistan|UZ|Asia/Tashkent|Asia Pacific
+```
+
+### ۵. اضافه به `FA_NAMES`:
+
+```javascript
+'Tashkent': 'تاشکند',
+'Uzbekistan': 'ازبکستان',
+```
+
+---
+
+## Timezone Reference — مناطق بدون DST
+
+| شهر | Timezone | UTC |
+|-----|----------|-----|
+| Dubai | Asia/Dubai | +4:00 |
+| Tehran | Asia/Tehran | +3:30 |
+| Riyadh | Asia/Riyadh | +3:00 |
+| Doha | Asia/Qatar | +3:00 |
+| Muscat | Asia/Muscat | +4:00 |
+| Kabul | Asia/Kabul | +4:30 |
+| Karachi | Asia/Karachi | +5:00 |
+| Kolkata | Asia/Kolkata | +5:30 |
+| Colombo | Asia/Colombo | +5:30 |
+| Dhaka | Asia/Dhaka | +6:00 |
+| Bangkok | Asia/Bangkok | +7:00 |
+| Singapore | Asia/Singapore | +8:00 |
+| Shanghai | Asia/Shanghai | +8:00 |
+| Tokyo | Asia/Tokyo | +9:00 |

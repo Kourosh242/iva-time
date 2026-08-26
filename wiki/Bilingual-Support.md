@@ -6,166 +6,192 @@
 
 | زبان | کد | جهت | اعداد |
 |------|-----|------|-------|
-| فارسی | `fa` | RTL (راست به چپ) | اعداد فارسی (۰۱۲۳۴۵۶۷۸۹) |
-| انگلیسی | `en` | LTR (چپ به راست) | اعداد عربی (0123456789) |
+| فارسی | `fa` | RTL (راست به چپ) | ۰۱۲۳۴۵۶۷۸۹ |
+| انگلیسی | `en` | LTR (چپ به راست) | 0123456789 |
 
-### ویژگی‌های RTL
+### نحوه تغییر زبان
 
-هنگامی که زبان فارسی انتخاب می‌شود:
-1. **جهت متن** (`dir`) به `rtl` تغییر می‌کند
-2. **فونت** به Vazirmatn تغییر می‌کند
-3. **چیدمان** عناصر تغییر می‌کند:
-   - منو از سمت چپ به راست
-   - فلش‌های تقویم معکوس می‌شوند
-   - گلوب در سمت چپ قرار می‌گیرد
-4. **حروف فارسی** به درستی نمایش داده می‌شوند
+کلیک روی دکمه **«فا»** یا **«EN»** در گوشه هدر — تنظیم در `localStorage` ذخیره می‌شود.
 
-### عناصر ترجمه‌شده
+### آنچه در تغییر زبان تغییر می‌کند
 
-تمام متن‌های کاربردی در هر دو زبان موجود هستند:
+1. **جهت صفحه** — `document.documentElement.dir` از `ltr` به `rtl` تغییر می‌کند
+2. **زبان صفحه** — `document.documentElement.lang` بروز می‌شود
+3. **متن‌ها** — هر عنصر با `data-i` attribute ترجمه می‌شود
+4. **placeholder‌ها** — با `data-placeholder` attribute ترجمه می‌شوند
+5. **aria-label‌ها** — با `data-aria` attribute ترجمه می‌شوند
+6. **اعداد** — در حالت فارسی با `toFa()` تبدیل می‌شوند
+7. **فیلترهای منطقه** — نام منطقه‌ها به فارسی نمایش داده می‌شود
+8. **عنوان صفحه** — `document.title` تغییر می‌کند
 
-| کلید | فارسی | انگلیسی |
-|------|-------|---------|
-| clocks | ساعت‌های جهان | World clocks |
-| about | درباره | About |
-| calendar | تقویم | Calendar |
-| lead | توضیحات | Description |
-| search | جستجو... | Search... |
-| today | امروز | Today |
+### سیستم ترجمه
+
+تمام رشته‌ها در `app.js` درون آبجکت `C` ذخیره‌اند:
+
+```javascript
+const C = {
+  en: {
+    clocks: 'World clocks',
+    search: 'Search city or country…',
+    calJ:   'Persian (Jalali)',
+    // ...
+  },
+  fa: {
+    clocks: 'ساعت‌های جهان',
+    search: 'جست‌وجوی شهر یا کشور…',
+    calJ:   'شمسی (جلالی)',
+    // ...
+  }
+};
+```
+
+**اعمال ترجمه در HTML:**
+
+```html
+<!-- data-i: متن innerText -->
+<a data-i="clocks">World clocks</a>
+
+<!-- data-placeholder: placeholder ورودی -->
+<input data-placeholder="search">
+
+<!-- data-aria: aria-label -->
+<button data-aria="search" aria-label="Search city or country">
+```
+
+### تبدیل اعداد فارسی
+
+```javascript
+const toFa = s => String(s).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[+d]);
+
+toFa('12:30:45');  // '۱۲:۳۰:۴۵'
+toFa('1405');      // '۱۴۰۵'
+toFa('42');        // '۴۲'
+```
 
 ### فونت Vazirmatn
 
-[Vazirmatn](https://github.com/rastikerdg/vazirmatn) یک فونت متن‌باز فارسی است که:
-- به صورت محلی (self-hosted) میزبانی می‌شود
-- متغیر (Variable) است و تمام وزن‌ها را دارد
-- از UTF-8 پشتیبانی می‌کند
-- عملکرد عالی در وب دارد
+فونت [Vazirmatn](https://github.com/rastikerdar/vazirmatn) به صورت self-hosted در `assets/fonts/` ذخیره شده:
+
+```css
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('assets/fonts/Vazirmatn-Variable.woff2') format('woff2');
+  font-weight: 100 900;  /* Variable font — تمام وزن‌ها */
+  font-display: swap;
+}
+```
+
+**مزایا:**
+- فونت متغیر (Variable) — یک فایل برای تمام وزن‌ها
+- `font-display: swap` — بارگذاری سریع بدون FOIT
+- Self-hosted — بدون درخواست به CDN خارجی
+- CSP-safe — `font-src 'self'` کافی است
+
+### RTL در CSS
+
+```css
+/* جهت‌های وابسته به متن با logical properties */
+[dir=rtl] nav {
+  margin-right: auto;
+  margin-left: 30px;
+}
+
+[dir=rtl] .globe {
+  right: auto;
+  left: 20px;
+}
+
+/* فلش تقویم در RTL معکوس می‌شود */
+[dir=rtl] .cal-nav button:first-child {
+  transform: scaleX(-1);
+}
+
+/* فونت برای عناوین RTL */
+[dir=rtl] .hero h1,
+[dir=rtl] .head h2 {
+  font-family: Vazirmatn, Arial, sans-serif;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+```
 
 ---
 
 ## 🇬🇧 English
 
-### Supported Languages
+### How Language Switching Works
 
-| Language | Code | Direction | Numerals |
-|----------|------|-----------|----------|
-| Persian | `fa` | RTL (Right-to-Left) | Persian numerals (۰۱۲۳۴۵۶۷۸۹) |
-| English | `en` | LTR (Left-to-Right) | Arabic numerals (0123456789) |
-
-### RTL Features
-
-When Persian language is selected:
-1. **Text direction** (`dir`) changes to `rtl`
-2. **Font** changes to Vazirmatn
-3. **Layout** elements adjust:
-   - Navigation moves from left to right
-   - Calendar arrows are reversed
-   - Globe moves to the left side
-4. **Persian text** displays correctly
-
-### Translated Elements
-
-All user-facing text is available in both languages:
-
-| Key | Persian | English |
-|-----|---------|---------|
-| clocks | ساعت‌های جهان | World clocks |
-| about | درباره | About |
-| calendar | تقویم | Calendar |
-| lead | توضیحات | Description |
-| search | جستجو... | Search... |
-| today | امروز | Today |
-
-### Vazirmatn Font
-
-[Vazirmatn](https://github.com/rastikerdg/vazirmatn) is an open-source Persian font that:
-- Is self-hosted locally
-- Is variable (Variable) with all weights
-- Supports UTF-8
-- Has excellent web performance
-
----
-
-## 🔧 Implementation Details
-
-### Language Detection
+In `app.js`, the `translate()` function:
 
 ```javascript
-// Default language
-let lang = 'en';
-
-// Switch language
-function toggleLanguage() {
-  lang = lang === 'en' ? 'fa' : 'en';
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-  translate();
-}
-```
-
-### Translation System
-
-```javascript
-const C = {
-  en: { /* English strings */ },
-  fa: { /* Persian strings */ }
-};
-
-// Apply translations
 function translate() {
   const t = C[lang];
+  document.title = t.pageTitle;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+
+  // Text content
   document.querySelectorAll('[data-i]').forEach(e => {
-    if (t[e.dataset.i] !== undefined) {
-      e.textContent = t[e.dataset.i];
-    }
+    if (t[e.dataset.i] !== undefined) e.textContent = t[e.dataset.i];
   });
+
+  // Placeholders
+  document.querySelectorAll('[data-placeholder]').forEach(e => {
+    if (t[e.dataset.placeholder] !== undefined)
+      e.placeholder = t[e.dataset.placeholder];
+  });
+
+  // ARIA labels
+  document.querySelectorAll('[data-aria]').forEach(e => {
+    if (t[e.dataset.aria] !== undefined)
+      e.setAttribute('aria-label', t[e.dataset.aria]);
+  });
+
+  // Region filter labels
+  document.querySelectorAll('#filters button').forEach(b => {
+    b.textContent = lang === 'fa' ? REGION_FA[b.dataset.region] : b.dataset.region;
+  });
+
+  render();
+  renderCal();
+  renderToday();
+  updateSyncUI();
+  if (window.ivaAfterTranslate) window.ivaAfterTranslate();
 }
 ```
 
-### Persian Numeral Conversion
+### Persistence
+
+Language preference is saved to localStorage:
 
 ```javascript
-const toFa = s => String(s).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[+d]);
-// "2024" → "۲۰۲۴"
+$('#lang').onclick = () => {
+  lang = lang === 'en' ? 'fa' : 'en';
+  localStorage.setItem('iva-lang', lang);
+  translate();
+};
 ```
 
-### RTL CSS
+### Shareable Language via URL
 
-```css
-/* Persian (RTL) specific styles */
-[dir="rtl"] body {
-  font-family: Vazirmatn, Arial, sans-serif;
-}
-
-[dir="rtl"] nav {
-  margin-right: auto;
-  margin-left: 30px;
-}
-
-[dir="rtl"] .globe {
-  right: auto;
-  left: 20px;
-}
+```
+?lang=fa   → forces Persian on load
+?lang=en   → forces English on load
 ```
 
----
-
-## 🌐 Browser Language Detection
-
-IVA TIME respects the browser's language preference on first load:
+The `features.js` reads this on startup:
 
 ```javascript
-// Check browser language
-const browserLang = navigator.language || navigator.userLanguage;
-// Default to English, Persian if 'fa' detected
-const defaultLang = browserLang.startsWith('fa') ? 'fa' : 'en';
+const params = new URLSearchParams(location.search);
+if (params.has('lang') && ['fa','en'].includes(params.get('lang'))) {
+  lang = params.get('lang');
+  localStorage.setItem('iva-lang', lang);
+}
 ```
 
----
+### Accessibility
 
-## 📱 Accessibility
-
-- Language can be toggled via keyboard (button focus)
-- Screen readers announce language changes
-- RTL/LTR is properly conveyed to assistive technologies
-- All text alternatives are provided for visual elements
+- Language toggle button has `aria-label` that updates with language
+- `document.lang` attribute is always correct for screen readers
+- `dir` attribute ensures correct cursor and text-selection behaviour
+- Persian numerals are announced correctly by modern screen readers
