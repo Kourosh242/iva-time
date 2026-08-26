@@ -25,14 +25,20 @@ const o = calc();
 
 ```css
 /* ✅ خوب - BEM naming */
-.card__header { }
-.card__title { }
-.card--featured { }
+.card__header {
+}
+.card__title {
+}
+.card--featured {
+}
 
 /* ❌ بد - بدون ساختار */
-.card-header { }
-.title { }
-.featured { }
+.card-header {
+}
+.title {
+}
+.featured {
+}
 ```
 
 ### HTML
@@ -72,14 +78,20 @@ const o = calc();
 
 ```css
 /* ✅ Good - BEM naming */
-.card__header { }
-.card__title { }
-.card--featured { }
+.card__header {
+}
+.card__title {
+}
+.card--featured {
+}
 
 /* ❌ Bad - unstructured */
-.card-header { }
-.title { }
-.featured { }
+.card-header {
+}
+.title {
+}
+.featured {
+}
 ```
 
 ### HTML

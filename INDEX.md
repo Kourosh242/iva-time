@@ -63,34 +63,37 @@ iva-time/
 
 ### I want to...
 
-| Goal | Read This |
-|------|-----------|
-| **Learn about the project** | [README.md](./README.md) |
-| **Run it locally** | [Quick-Start.md](./wiki/Quick-Start.md) |
-| **Deploy to production** | [Installation.md](./wiki/Installation.md) |
-| **Add a new city** | [Adding-New-Cities.md](./wiki/Adding-New-Cities.md) |
-| **Understand NTP sync** | [NTP-Synchronization.md](./wiki/NTP-Synchronization.md) |
-| **Contribute code** | [CONTRIBUTING.md](./CONTRIBUTING.md) |
-| **Report a bug** | [Troubleshooting.md](./wiki/Troubleshooting.md) |
-| **Suggest a feature** | [GitHub Issues](https://github.com/Kourosh242/iva-time/issues) |
-| **Deploy the Wiki** | [WIKI-DEPLOY.md](./WIKI-DEPLOY.md) |
+| Goal                        | Read This                                                      |
+| --------------------------- | -------------------------------------------------------------- |
+| **Learn about the project** | [README.md](./README.md)                                       |
+| **Run it locally**          | [Quick-Start.md](./wiki/Quick-Start.md)                        |
+| **Deploy to production**    | [Installation.md](./wiki/Installation.md)                      |
+| **Add a new city**          | [Adding-New-Cities.md](./wiki/Adding-New-Cities.md)            |
+| **Understand NTP sync**     | [NTP-Synchronization.md](./wiki/NTP-Synchronization.md)        |
+| **Contribute code**         | [CONTRIBUTING.md](./CONTRIBUTING.md)                           |
+| **Report a bug**            | [Troubleshooting.md](./wiki/Troubleshooting.md)                |
+| **Suggest a feature**       | [GitHub Issues](https://github.com/Kourosh242/iva-time/issues) |
+| **Deploy the Wiki**         | [WIKI-DEPLOY.md](./WIKI-DEPLOY.md)                             |
 
 ---
 
 ## 🇮🇷 فارسی - مسیر یادگیری
 
 ### برای کاربران جدید
+
 1. [README.md](./README.md) - معرفی پروژه
 2. [Quick-Start.md](./wiki/Quick-Start.md) - شروع سریع
 3. [World-Clocks.md](./wiki/World-Clocks.md) - استفاده از ساعت‌ها
 
 ### برای توسعه‌دهندگان
+
 1. [Architecture.md](./wiki/Architecture.md) - معماری فنی
 2. [API-Reference.md](./wiki/API-Reference.md) - مرجع API
 3. [Adding-New-Cities.md](./wiki/Adding-New-Cities.md) - افزودن شهر
 4. [CODING-STANDARDS.md](./CODING-STANDARDS.md) - استانداردهای کد
 
 ### برای استقرار
+
 1. [Installation.md](./wiki/Installation.md) - راهنمای نصب
 2. [WIKI-DEPLOY.md](./WIKI-DEPLOY.md) - استقرار ویکی
 
@@ -99,17 +102,20 @@ iva-time/
 ## 🇬🇧 English - Learning Path
 
 ### For New Users
+
 1. [README.md](./README.md) - Project introduction
 2. [Quick-Start.md](./wiki/Quick-Start.md) - Get started
 3. [World-Clocks.md](./wiki/World-Clocks.md) - Using clocks
 
 ### For Developers
+
 1. [Architecture.md](./wiki/Architecture.md) - Technical architecture
 2. [API-Reference.md](./wiki/API-Reference.md) - JavaScript API
 3. [Adding-New-Cities.md](./wiki/Adding-New-Cities.md) - Add cities
 4. [CODING-STANDARDS.md](./CODING-STANDARDS.md) - Code standards
 
 ### For Deployment
+
 1. [Installation.md](./wiki/Installation.md) - Installation guide
 2. [WIKI-DEPLOY.md](./WIKI-DEPLOY.md) - Wiki deployment
 
@@ -117,13 +123,13 @@ iva-time/
 
 ## 📊 Documentation Stats
 
-| Category | Count |
-|----------|-------|
-| Main Documentation | 7 files |
-| Wiki Pages | 13 pages |
-| Issue Templates | 2 templates |
-| Workflows | 1 workflow |
-| **Total** | **~23 documents** |
+| Category           | Count             |
+| ------------------ | ----------------- |
+| Main Documentation | 7 files           |
+| Wiki Pages         | 13 pages          |
+| Issue Templates    | 2 templates       |
+| Workflows          | 1 workflow        |
+| **Total**          | **~23 documents** |
 
 ---
 

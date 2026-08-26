@@ -1,1 +1,64 @@
-.header-actions{display:flex;align-items:center;gap:5px;flex:none}header #install{width:auto;min-width:max-content;max-width:150px;height:38px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:20px;white-space:nowrap;overflow:hidden;line-height:1;font-size:11px}header #install[hidden]{display:none}header #install svg{width:16px;height:16px;flex:0 0 16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}header #install span{display:block;overflow:hidden;text-overflow:ellipsis}@media(max-width:700px){header #install:not([hidden]){display:inline-flex;max-width:112px;padding:0 9px}.header-actions{gap:2px}}@media(max-width:420px){header #install span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}header #install{min-width:38px;width:38px;padding:0}}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: none;
+}
+header #install {
+  width: auto;
+  min-width: max-content;
+  max-width: 150px;
+  height: 38px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1;
+  font-size: 11px;
+}
+header #install[hidden] {
+  display: none;
+}
+header #install svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+header #install span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 700px) {
+  header #install:not([hidden]) {
+    display: inline-flex;
+    max-width: 112px;
+    padding: 0 9px;
+  }
+  .header-actions {
+    gap: 2px;
+  }
+}
+@media (max-width: 420px) {
+  header #install span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  header #install {
+    min-width: 38px;
+    width: 38px;
+    padding: 0;
+  }
+}

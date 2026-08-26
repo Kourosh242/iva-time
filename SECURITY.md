@@ -81,6 +81,7 @@ We take security seriously. If you discover a security vulnerability, please rep
 ### Data Storage
 
 IVA TIME:
+
 - ❌ Stores no user data
 - ❌ Uses no cookies
 - ❌ Requires no authentication
@@ -89,10 +90,12 @@ IVA TIME:
 ### Network Requests
 
 IVA TIME makes requests to:
+
 - `cloudflare.com/cdn-cgi/trace` - Time sync
 - `worldtimeapi.org/api/timezone/Etc/UTC` - Time sync (fallback)
 
 These requests:
+
 - Use HTTPS only
 - Transfer no personal data
 - Are made on-demand (not continuous)
@@ -100,6 +103,7 @@ These requests:
 ### Dependencies
 
 This project has **zero npm dependencies**:
+
 - Pure HTML, CSS, JavaScript
 - Self-hosted fonts
 - No external CDNs required

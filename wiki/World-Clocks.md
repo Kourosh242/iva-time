@@ -5,59 +5,64 @@
 ### شهرهای پیش‌فرض (۳۵ شهر)
 
 #### قاره آمریکا
-| شهر | کشور | منطقه زمانی |
-|-----|------|------------|
-| New York | United States | America/New_York |
-| Los Angeles | United States | America/Los_Angeles |
-| Toronto | Canada | America/Toronto |
-| Mexico City | Mexico | America/Mexico_City |
-| São Paulo | Brazil | America/Sao_Paulo |
-| Buenos Aires | Argentina | America/Argentina/Buenos_Aires |
+
+| شهر          | کشور          | منطقه زمانی                    |
+| ------------ | ------------- | ------------------------------ |
+| New York     | United States | America/New_York               |
+| Los Angeles  | United States | America/Los_Angeles            |
+| Toronto      | Canada        | America/Toronto                |
+| Mexico City  | Mexico        | America/Mexico_City            |
+| São Paulo    | Brazil        | America/Sao_Paulo              |
+| Buenos Aires | Argentina     | America/Argentina/Buenos_Aires |
 
 #### اروپا
-| شهر | کشور | منطقه زمانی |
-|-----|------|------------|
-| London | United Kingdom | Europe/London |
-| Paris | France | Europe/Paris |
-| Berlin | Germany | Europe/Berlin |
-| Madrid | Spain | Europe/Madrid |
-| Rome | Italy | Europe/Rome |
-| Amsterdam | Netherlands | Europe/Amsterdam |
-| Stockholm | Sweden | Europe/Stockholm |
-| Istanbul | Türkiye | Europe/Istanbul |
+
+| شهر       | کشور           | منطقه زمانی      |
+| --------- | -------------- | ---------------- |
+| London    | United Kingdom | Europe/London    |
+| Paris     | France         | Europe/Paris     |
+| Berlin    | Germany        | Europe/Berlin    |
+| Madrid    | Spain          | Europe/Madrid    |
+| Rome      | Italy          | Europe/Rome      |
+| Amsterdam | Netherlands    | Europe/Amsterdam |
+| Stockholm | Sweden         | Europe/Stockholm |
+| Istanbul  | Türkiye        | Europe/Istanbul  |
 
 #### خاورمیانه
-| شهر | کشور | منطقه زمانی |
-|-----|------|------------|
-| Dubai | UAE | Asia/Dubai |
-| **Tehran** | **Iran** | **Asia/Tehran** |
-| Riyadh | Saudi Arabia | Asia/Riyadh |
-| Doha | Qatar | Asia/Qatar |
+
+| شهر        | کشور         | منطقه زمانی     |
+| ---------- | ------------ | --------------- |
+| Dubai      | UAE          | Asia/Dubai      |
+| **Tehran** | **Iran**     | **Asia/Tehran** |
+| Riyadh     | Saudi Arabia | Asia/Riyadh     |
+| Doha       | Qatar        | Asia/Qatar      |
 
 #### آفریقا
-| شهر | کشور | منطقه زمانی |
-|-----|------|------------|
-| Cairo | Egypt | Africa/Cairo |
-| Lagos | Nigeria | Africa/Lagos |
-| Nairobi | Kenya | Africa/Nairobi |
-| Cape Town | South Africa | Africa/Johannesburg |
-| Casablanca | Morocco | Africa/Casablanca |
+
+| شهر        | کشور         | منطقه زمانی         |
+| ---------- | ------------ | ------------------- |
+| Cairo      | Egypt        | Africa/Cairo        |
+| Lagos      | Nigeria      | Africa/Lagos        |
+| Nairobi    | Kenya        | Africa/Nairobi      |
+| Cape Town  | South Africa | Africa/Johannesburg |
+| Casablanca | Morocco      | Africa/Casablanca   |
 
 #### آسیا و اقیانوسیه
-| شهر | کشور | منطقه زمانی |
-|-----|------|------------|
-| Tokyo | Japan | Asia/Tokyo |
-| Seoul | South Korea | Asia/Seoul |
-| Beijing | China | Asia/Shanghai |
-| Singapore | Singapore | Asia/Singapore |
-| Bangkok | Thailand | Asia/Bangkok |
-| Jakarta | Indonesia | Asia/Jakarta |
-| Mumbai | India | Asia/Kolkata |
-| Karachi | Pakistan | Asia/Karachi |
-| Dhaka | Bangladesh | Asia/Dhaka |
-| Sydney | Australia | Australia/Sydney |
-| Perth | Australia | Australia/Perth |
-| Auckland | New Zealand | Pacific/Auckland |
+
+| شهر       | کشور        | منطقه زمانی      |
+| --------- | ----------- | ---------------- |
+| Tokyo     | Japan       | Asia/Tokyo       |
+| Seoul     | South Korea | Asia/Seoul       |
+| Beijing   | China       | Asia/Shanghai    |
+| Singapore | Singapore   | Asia/Singapore   |
+| Bangkok   | Thailand    | Asia/Bangkok     |
+| Jakarta   | Indonesia   | Asia/Jakarta     |
+| Mumbai    | India       | Asia/Kolkata     |
+| Karachi   | Pakistan    | Asia/Karachi     |
+| Dhaka     | Bangladesh  | Asia/Dhaka       |
+| Sydney    | Australia   | Australia/Sydney |
+| Perth     | Australia   | Australia/Perth  |
+| Auckland  | New Zealand | Pacific/Auckland |
 
 ### افزودن شهر سفارشی
 
@@ -78,6 +83,7 @@
 ### جستجو
 
 جستجو روی موارد زیر اعمال می‌شود:
+
 - نام شهر (انگلیسی)
 - نام کشور (انگلیسی)
 - نام فارسی شهر (از `FA_NAMES`)
@@ -85,12 +91,12 @@
 
 ### مرتب‌سازی
 
-| حالت | توضیح |
-|------|-------|
-| Default | ترتیب اصلی لیست `P` |
-| Favorites | علاقه‌مندها اول، بقیه الفبایی |
-| Name | الفبایی بر اساس زبان جاری |
-| UTC offset | از غرب به شرق |
+| حالت       | توضیح                         |
+| ---------- | ----------------------------- |
+| Default    | ترتیب اصلی لیست `P`           |
+| Favorites  | علاقه‌مندها اول، بقیه الفبایی |
+| Name       | الفبایی بر اساس زبان جاری     |
+| UTC offset | از غرب به شرق                 |
 
 ---
 

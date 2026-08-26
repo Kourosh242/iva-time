@@ -33,6 +33,7 @@ php -S localhost:8000
 ### راهنمای سریع استفاده
 
 **ساعت‌های جهان:**
+
 - **تغییر زبان** — دکمه «فا/EN» در هدر
 - **جستجو** — نام شهر یا کشور را تایپ کنید (فارسی یا انگلیسی)
 - **فیلتر منطقه** — دکمه‌های All / Americas / Europe / ...
@@ -44,11 +45,13 @@ php -S localhost:8000
 - **اشتراک** — دکمه «Share settings» برای کپی لینک قابل اشتراک
 
 **تقویم:**
+
 - **تغییر ماه** — فلش‌های ‹ و ›
 - **تغییر نوع** — بین شمسی (جلالی) و میلادی
 - **همگام‌سازی** — دکمه «همگام‌سازی» یا تغییر منبع
 
 **مقایسه و برنامه‌ریز:**
+
 - **مقایسه ساعت** — دکمه «Compare time» + انتخاب دو شهر
 - **برنامه‌ریز جلسه** — دکمه «Meeting planner» + انتخاب شهرها + «Find suitable times»
 
@@ -87,6 +90,7 @@ Visit `http://localhost:8000`.
 ### Quick Usage
 
 **World Clocks:**
+
 - **Language** — Click «فا/EN» in header
 - **Search** — Type city or country name (Persian or English)
 - **Filter** — Use region buttons (All / Americas / Europe / ...)
@@ -98,11 +102,13 @@ Visit `http://localhost:8000`.
 - **Share** — "Share settings" copies a shareable link
 
 **Calendar:**
+
 - **Navigate** — Use ‹ › arrows for previous/next month
 - **Switch type** — Toggle between Persian (Jalali) and Gregorian
 - **Sync** — Click "Sync now" or change source
 
 **Compare & Planner:**
+
 - **Compare** — "Compare time" → select two cities
 - **Planner** — "Meeting planner" → select cities → "Find suitable times"
 
@@ -110,21 +116,21 @@ Visit `http://localhost:8000`.
 
 ## 📱 Browser Support
 
-| Browser | Min Version | Status |
-|---------|------------|--------|
-| Chrome / Edge | 80+ | ✅ Fully supported |
-| Firefox | 75+ | ✅ Fully supported |
-| Safari | 13+ | ✅ Fully supported |
-| Mobile Chrome | 80+ | ✅ Tested |
-| Mobile Safari | 13+ | ✅ Tested |
+| Browser       | Min Version | Status             |
+| ------------- | ----------- | ------------------ |
+| Chrome / Edge | 80+         | ✅ Fully supported |
+| Firefox       | 75+         | ✅ Fully supported |
+| Safari        | 13+         | ✅ Fully supported |
+| Mobile Chrome | 80+         | ✅ Tested          |
+| Mobile Safari | 13+         | ✅ Tested          |
 
 ---
 
 ## ⚠️ Common First-Run Issues
 
-| مشکل / Issue | راه‌حل / Solution |
-|-------------|------------------|
-| زمان بروز نمی‌شود / Time not updating | صفحه را رفرش کنید / Refresh the page |
-| فونت بارگذاری نمی‌شود / Font not loading | از سرور HTTP استفاده کنید / Use an HTTP server |
-| همگام‌سازی NTP ناموفق / NTP sync fails | اتصال اینترنت را بررسی کنید / Check internet connection |
+| مشکل / Issue                                  | راه‌حل / Solution                                            |
+| --------------------------------------------- | ------------------------------------------------------------ |
+| زمان بروز نمی‌شود / Time not updating         | صفحه را رفرش کنید / Refresh the page                         |
+| فونت بارگذاری نمی‌شود / Font not loading      | از سرور HTTP استفاده کنید / Use an HTTP server               |
+| همگام‌سازی NTP ناموفق / NTP sync fails        | اتصال اینترنت را بررسی کنید / Check internet connection      |
 | نصب PWA ظاهر نمی‌شود / Install button missing | فقط روی HTTPS و localhost فعال است / HTTPS or localhost only |

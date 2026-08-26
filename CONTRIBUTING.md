@@ -11,6 +11,7 @@
 5. **توضیح واضح**: مشکل و راه‌حل را واضح توضیح دهید.
 
 ### افزودن شهر
+
 برای افزودن شهر جدید، از منطقه زمانی معتبر IANA و کد کشور ISO alpha-2 استفاده کنید.
 
 ---
@@ -26,9 +27,11 @@
 5. **Clear Description**: Explain the problem and solution clearly.
 
 ### Adding Cities
+
 For city additions, use a valid IANA timezone and ISO alpha-2 country code. Verify the timezone using the [IANA Time Zone Database](https://www.iana.org/time-zones).
 
 ### Development Setup
+
 This is a pure static site — no build step, npm, or dependencies required. Simply open `index.html` in a browser or serve with any static server:
 
 ```bash
@@ -43,6 +46,7 @@ php -S localhost:8000
 ```
 
 ### Pull Request Checklist
+
 - [ ] Both Persian and English text updated equivalently
 - [ ] RTL/LTR layouts tested
 - [ ] Responsive design verified on mobile

@@ -25,31 +25,31 @@
 
 مثال‌های رایج:
 
-| شهر | Timezone |
-|-----|----------|
-| Kabul | Asia/Kabul |
-| Tashkent | Asia/Tashkent |
-| Baku | Asia/Baku |
-| Yerevan | Asia/Yerevan |
-| Tbilisi | Asia/Tbilisi |
-| Islamabad | Asia/Karachi |
-| Colombo | Asia/Colombo |
+| شهر       | Timezone       |
+| --------- | -------------- |
+| Kabul     | Asia/Kabul     |
+| Tashkent  | Asia/Tashkent  |
+| Baku      | Asia/Baku      |
+| Yerevan   | Asia/Yerevan   |
+| Tbilisi   | Asia/Tbilisi   |
+| Islamabad | Asia/Karachi   |
+| Colombo   | Asia/Colombo   |
 | Kathmandu | Asia/Kathmandu |
-| Muscat | Asia/Muscat |
-| Kuwait | Asia/Kuwait |
+| Muscat    | Asia/Muscat    |
+| Kuwait    | Asia/Kuwait    |
 
 ### قدم ۲: پیدا کردن کد کشور ISO 3166-1
 
-| کشور | کد |
-|------|-----|
-| ایران | IR |
-| افغانستان | AF |
-| ازبکستان | UZ |
-| آذربایجان | AZ |
-| ارمنستان | AM |
-| گرجستان | GE |
-| عمان | OM |
-| کویت | KW |
+| کشور      | کد  |
+| --------- | --- |
+| ایران     | IR  |
+| افغانستان | AF  |
+| ازبکستان  | UZ  |
+| آذربایجان | AZ  |
+| ارمنستان  | AM  |
+| گرجستان   | GE  |
+| عمان      | OM  |
+| کویت      | KW  |
 
 ### قدم ۳: افزودن به رشته `P` در app.js
 
@@ -78,8 +78,8 @@ Kabul|Afghanistan|AF|Asia/Kabul|Middle East
 ```javascript
 const FA_NAMES = {
   // شهرهای موجود...
-  'Kabul': 'کابل',
-  'Afghanistan': 'افغانستان',
+  Kabul: "کابل",
+  Afghanistan: "افغانستان",
 };
 ```
 
@@ -106,8 +106,11 @@ npm run lint
 ## مثال کامل: افزودن تاشکند
 
 ### ۱. Timezone: `Asia/Tashkent`
+
 ### ۲. کشور: Uzbekistan / UZ
+
 ### ۳. منطقه: Asia Pacific
+
 ### ۴. اضافه به `P`:
 
 ```
@@ -125,19 +128,19 @@ Tashkent|Uzbekistan|UZ|Asia/Tashkent|Asia Pacific
 
 ## Timezone Reference — مناطق بدون DST
 
-| شهر | Timezone | UTC |
-|-----|----------|-----|
-| Dubai | Asia/Dubai | +4:00 |
-| Tehran | Asia/Tehran | +3:30 |
-| Riyadh | Asia/Riyadh | +3:00 |
-| Doha | Asia/Qatar | +3:00 |
-| Muscat | Asia/Muscat | +4:00 |
-| Kabul | Asia/Kabul | +4:30 |
-| Karachi | Asia/Karachi | +5:00 |
-| Kolkata | Asia/Kolkata | +5:30 |
-| Colombo | Asia/Colombo | +5:30 |
-| Dhaka | Asia/Dhaka | +6:00 |
-| Bangkok | Asia/Bangkok | +7:00 |
+| شهر       | Timezone       | UTC   |
+| --------- | -------------- | ----- |
+| Dubai     | Asia/Dubai     | +4:00 |
+| Tehran    | Asia/Tehran    | +3:30 |
+| Riyadh    | Asia/Riyadh    | +3:00 |
+| Doha      | Asia/Qatar     | +3:00 |
+| Muscat    | Asia/Muscat    | +4:00 |
+| Kabul     | Asia/Kabul     | +4:30 |
+| Karachi   | Asia/Karachi   | +5:00 |
+| Kolkata   | Asia/Kolkata   | +5:30 |
+| Colombo   | Asia/Colombo   | +5:30 |
+| Dhaka     | Asia/Dhaka     | +6:00 |
+| Bangkok   | Asia/Bangkok   | +7:00 |
 | Singapore | Asia/Singapore | +8:00 |
-| Shanghai | Asia/Shanghai | +8:00 |
-| Tokyo | Asia/Tokyo | +9:00 |
+| Shanghai  | Asia/Shanghai  | +8:00 |
+| Tokyo     | Asia/Tokyo     | +9:00 |

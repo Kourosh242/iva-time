@@ -79,7 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Persian numerals display
   - Today highlight with orange border
   - Cross-date display (shows equivalent in other calendar)
-  
+
 - ✅ **NTP Time Synchronization** - همگام‌سازی زمان NTP
   - Cloudflare edge time source
   - WorldTimeAPI fallback
@@ -88,7 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Live status bar (source, RTT, offset)
   - Auto re-sync every 5 minutes
   - Manual sync button
-  
+
 - ✅ **Enhanced World Clocks** - ساعت‌های جهان بهبودیافته
   - 38 cities across 6 regions
   - Day/night indicator
@@ -96,13 +96,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Search functionality
   - Regional filters (Americas, Europe, Middle East, Africa, Asia Pacific)
   - "Show more" pagination
-  
+
 - ✅ **Bilingual Support** - پشتیبانی دو زبانه
   - Complete Persian (RTL) translations
   - Complete English (LTR) translations
   - Persian numerals (۰۱۲۳۴۵۶۷۸۹)
   - True RTL layout with Vazirmatn font
-  
+
 - ✅ **Professional Documentation** - مستندات حرفه‌ای
   - Comprehensive bilingual README
   - 13-page Wiki documentation
@@ -118,12 +118,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Improved card design
   - Better typography hierarchy
   - Enhanced calendar panel
-  
+
 - 📱 **Improved Responsiveness** - واکنش‌گرایی بهبودیافته
   - Better mobile layouts
   - Optimized breakpoints
   - Touch-friendly controls
-  
+
 - ⚡ **Performance** - عملکرد
   - Optimized render loop
   - Reduced DOM updates
@@ -165,10 +165,10 @@ MAJOR.MINOR.PATCH
 
 ### Version History · تاریخچه نسخه‌ها
 
-| Version | Date | Jalali Year | Status |
-|---------|------|-------------|--------|
-| 2.0.0 | 2025 | ۱۴۰۴ | 🎉 Current |
-| 1.0.0 | 2024 | ۱۴۰۳ | ⚠️ Deprecated |
+| Version | Date | Jalali Year | Status        |
+| ------- | ---- | ----------- | ------------- |
+| 2.0.0   | 2025 | ۱۴۰۴        | 🎉 Current    |
+| 1.0.0   | 2024 | ۱۴۰۳        | ⚠️ Deprecated |
 
 ---
 
@@ -188,6 +188,7 @@ MAJOR.MINOR.PATCH
 Found a bug? Please report it using our [Bug Report Template](./.github/ISSUE_TEMPLATE/bug_report.yml).
 
 Please include:
+
 - Browser name and version
 - Device type (mobile/desktop)
 - Operating system
