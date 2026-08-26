@@ -1,8 +1,0 @@
-# Git LFS configuration for large files
-# Track PNG files larger than 500KB
-*.png filter=lfs diff=lfs merge=lfs -text
-*.woff2 filter=lfs diff=lfs merge=lfs -text
-
-# Binary files
-assets/og.png filter=lfs diff=lfs merge=lfs -text
-assets/fonts/*.woff2 filter=lfs diff=lfs merge=lfs -text
