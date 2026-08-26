@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.2] - 2026-08-26
+
+### Fixed · اصلاح شده
+
+- حذف متن فارسی ثابت از حالت English در برند و عنوان صفحه
+- افزودن آیکون نصب و جلوگیری از بیرون‌زدن متن دکمه در دسکتاپ و موبایل
+- به‌روزرسانی cache برای نمایش فوری فایل‌های ظاهری جدید
+
+### Improved · بهبود یافته
+
+- بازطراحی هدر، کارت ساعت‌ها، دکمه‌ها، تقویم و پنل‌های ابزار
+- بهبود Hover، عمق بصری، فاصله‌گذاری و نمایش موبایل
+
 ## [4.0.0] - 2026-08-26
 
 ### Added · افزوده شده

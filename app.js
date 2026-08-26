@@ -145,7 +145,7 @@ Auckland|New Zealand|NZ|Pacific/Auckland|Asia Pacific`.split('\n').map(x=>{const
 
 const C={
   en:{
-    clocks:'World clocks',about:'About',calendar:'Calendar',wiki:'Wiki',
+    clocks:'World clocks',about:'About',calendar:'Calendar',wiki:'Wiki',brandSub:'WORLD CLOCK',pageTitle:'IVA TIME | World Clock',
     eyebrow:'THE WORLD, RIGHT ON TIME',line1:'Every city.',line2:'One moment.',
     lead:'A beautifully simple world clock for teams, travelers, and everyone across time zones.',
     cta:'Explore the world ↓',local:'YOUR LOCAL TIME',
@@ -164,7 +164,7 @@ const C={
     footer:'Time connects us all.',empty:'No matching city found.',theme:'Switch light/dark theme',prev:'Previous month',next:'Next month',skip:'Skip to content',install:'Install',manageCities:'＋ Manage cities',compare:'Compare time',planner:'Meeting planner',plannerHelp:'Select cities to find overlapping working hours.',findTimes:'Find suitable times',sort:'Sort',sortDefault:'Default',sortFavorites:'Favorites',sortName:'Name',sortOffset:'UTC offset',share:'Share settings',citySearch:'Search city or time zone…',done:'Done'
   },
   fa:{
-    clocks:'ساعت‌های جهان',about:'درباره',calendar:'تقویم',wiki:'راهنما',
+    clocks:'ساعت‌های جهان',about:'درباره',calendar:'تقویم',wiki:'راهنما',brandSub:'آیوا تایم',pageTitle:'IVA TIME | آیوا تایم',
     eyebrow:'جهان، دقیق و به‌موقع',line1:'هر شهر.',line2:'یک لحظه.',
     lead:'ساعتی زیبا و ساده برای تیم‌ها، مسافران و همه‌ی کسانی که میان منطقه‌های زمانی زندگی می‌کنند.',
     cta:'سفر در زمان ↓',local:'زمان محلی شما',
@@ -233,7 +233,7 @@ async function httpGet(url,timeoutMs=6000){
     const rtt=performance.now()-t0;
     if(!r.ok)return null;
     return{text,rtt};
-  }catch(e){
+  }catch{
     return null;
   }finally{
     clearTimeout(to);
@@ -260,7 +260,7 @@ const TIME_SOURCES=[
       const r=await httpGet('https://worldtimeapi.org/api/timezone/Etc/UTC');
       if(!r)return null;
       let j;
-      try{j=JSON.parse(r.text);}catch(e){return null;}
+      try{j=JSON.parse(r.text);}catch{return null;}
       const ms=parseTimeValue(j&&j.datetime);
       return ms?{serverMs:ms,rtt:r.rtt}:null;
     }
@@ -276,7 +276,7 @@ async function doSync(mode){
   if(mode!=='local'){
     for(const s of TIME_SOURCES){
       let res=null;
-      try{res=await s.get();}catch(e){res=null;}
+      try{res=await s.get();}catch{res=null;}
       if(res){hit={src:s,serverMs:res.serverMs,rtt:res.rtt};break;}
     }
   }
@@ -415,6 +415,7 @@ function render(){
 }
 function translate(){
   const t=C[lang];
+  document.title=t.pageTitle;
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='fa'?'rtl':'ltr';
   document.querySelectorAll('[data-i]').forEach(e=>{
