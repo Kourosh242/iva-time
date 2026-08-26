@@ -1,0 +1,330 @@
+/* IVA TIME Wiki — styles
+   Self-hosted, no CDN. CSP: style-src 'self' */
+
+/* ── Font ─────────────────────────────────────────────────────── */
+@font-face {
+  font-family: Vazirmatn;
+  src: url('../assets/fonts/Vazirmatn-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ── Design tokens ────────────────────────────────────────────── */
+:root {
+  --bg:      #141512;
+  --surface: #1c1d19;
+  --card:    #20211d;
+  --ink:     #f3f1e9;
+  --muted:   #9b9d93;
+  --line:    #353630;
+  --accent:  #ff5a36;
+  --gold:    #d8ad4f;
+  --sidebar: 280px;
+  --radius:  10px;
+  color-scheme: dark;
+}
+
+/* ── Reset ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Layout ───────────────────────────────────────────────────── */
+body {
+  display: grid;
+  grid-template-columns: var(--sidebar) 1fr;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Vazirmatn, Arial, Tahoma, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────── */
+aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-inline-end: 1px solid var(--line);
+  background: var(--surface);
+  padding: 24px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* logo area */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.sidebar-logo img { width: 36px; height: 36px; }
+.sidebar-logo span { font-weight: 700; font-size: 14px; letter-spacing: .5px; }
+.sidebar-logo small {
+  display: block;
+  color: var(--accent);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+/* back link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff !important;
+  padding: 7px 13px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 14px;
+  transition: opacity .2s;
+}
+.back-link:hover { opacity: .85; }
+
+/* search */
+#search {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 13px;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border-color .2s;
+}
+#search:focus { border-color: var(--accent); }
+#search::placeholder { color: var(--muted); }
+
+/* nav links */
+#pages {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#pages a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color .18s, background .18s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#pages a:hover  { color: var(--ink); background: var(--card); }
+#pages a.active { color: var(--accent); background: rgba(255,90,54,.08); font-weight: 600; }
+#pages a[hidden] { display: none; }
+
+/* ── Main content ─────────────────────────────────────────────── */
+main {
+  padding: 52px clamp(20px, 4vw, 72px) 100px;
+  min-width: 0;
+}
+
+/* Loading animation */
+.loading {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 60px 0;
+}
+.loading span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-bounce .8s ease-in-out infinite;
+}
+.loading span:nth-child(2) { animation-delay: .15s; }
+.loading span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: .4; }
+  40%            { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Page content typography ──────────────────────────────────── */
+.page-content { max-width: 820px; }
+
+.page-content h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.page-content h2 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  margin: 48px 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.page-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 32px 0 10px;
+  color: var(--gold);
+}
+.page-content h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 22px 0 8px;
+  color: var(--muted);
+  letter-spacing: .3px;
+}
+
+.page-content p  { margin-bottom: 14px; color: var(--ink); }
+.page-content hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+
+.page-content strong { color: var(--ink); }
+.page-content em     { color: var(--gold); font-style: normal; }
+
+/* links */
+.page-content a { color: var(--accent); text-underline-offset: 3px; }
+.page-content a:hover { opacity: .8; }
+
+/* images */
+.wiki-img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin: 12px 0;
+  display: block;
+}
+
+/* ── Code ─────────────────────────────────────────────────────── */
+.page-content code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: .88em;
+  background: var(--card);
+  color: #e4c97e;
+  padding: 2px 6px;
+  border-radius: 4px;
+  direction: ltr;
+  display: inline-block;
+}
+.page-content pre {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  overflow-x: auto;
+  margin: 18px 0;
+  direction: ltr;
+  text-align: left;
+}
+.page-content pre code {
+  background: none;
+  color: #cdd6f4;
+  padding: 0;
+  font-size: .84em;
+  line-height: 1.7;
+}
+/* language hint colors */
+.language-javascript .page-content pre code,
+.language-js         .page-content pre code { color: #f9e2af; }
+.language-css        .page-content pre code { color: #89dceb; }
+.language-html       .page-content pre code { color: #89b4fa; }
+.language-bash       .page-content pre code,
+.language-sh         .page-content pre code { color: #a6e3a1; }
+
+/* ── Tables ───────────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius); }
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.page-content th,
+.page-content td {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  text-align: start;
+}
+.page-content th {
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+.page-content tr:hover td { background: rgba(255,255,255,.03); }
+
+/* ── Lists ────────────────────────────────────────────────────── */
+.page-content ul,
+.page-content ol {
+  padding-inline-start: 22px;
+  margin-bottom: 14px;
+}
+.page-content li         { margin-bottom: 5px; }
+.page-content li::marker { color: var(--accent); }
+
+/* ── Blockquote ───────────────────────────────────────────────── */
+.page-content blockquote {
+  border-inline-start: 3px solid var(--accent);
+  margin: 18px 0;
+  padding: 10px 18px;
+  background: rgba(255,90,54,.05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--muted);
+}
+.page-content blockquote p { color: var(--muted); margin: 0; }
+
+/* ── Back button inside content ───────────────────────────────── */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ── Scrollbar (webkit) ───────────────────────────────────────── */
+aside::-webkit-scrollbar { width: 4px; }
+aside::-webkit-scrollbar-track  { background: transparent; }
+aside::-webkit-scrollbar-thumb  { background: var(--line); border-radius: 2px; }
+
+/* ── Mobile ───────────────────────────────────────────────────── */
+@media (max-width: 800px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  aside {
+    position: static;
+    height: auto;
+    border-inline-end: none;
+    border-bottom: 1px solid var(--line);
+    padding: 16px;
+    gap: 8px;
+  }
+  .sidebar-logo { margin-bottom: 0; }
+  #pages { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+  #pages a {
+    padding: 5px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  main { padding: 28px 20px 60px; }
+}
+
+@media (max-width: 500px) {
+  .page-content h1 { font-size: 24px; }
+  .page-content h2 { font-size: 18px; }
+  .page-content pre { padding: 12px; font-size: .78em; }
+}

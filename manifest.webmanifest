@@ -1,0 +1,20 @@
+{
+  "name": "IVA TIME · آیوا تایم",
+  "short_name": "IVA TIME",
+  "description": "Bilingual world clock, Jalali/Gregorian calendar, NTP sync and meeting planner",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#141512",
+  "theme_color": "#ff5a36",
+  "lang": "fa",
+  "dir": "auto",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
