@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2026-08-26
+
+### Redesigned · بازطراحی
+
+- هویت بصری تکنولوژیک مشکی و طلایی با رنگ‌های مکمل کنترل‌شده
+- کره مداری جدید، کارت‌های ساعت رنگ‌بندی‌شده و هدر حرفه‌ای‌تر
+- تعادل بهتر میان معرفی برند و دسترسی سریع به ابزارها
+- لوگو، Favicon و رنگ‌های نصب PWA هماهنگ با طراحی جدید
+- بهبود چیدمان و خوانایی در دسکتاپ و موبایل
+
 ## [4.0.2] - 2026-08-26
 
 ### Fixed · اصلاح شده
